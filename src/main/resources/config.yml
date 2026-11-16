@@ -15,6 +15,7 @@ shop:
   filler: GRAY_STAINED_GLASS_PANE
   categories-per-page: 8
   products-per-page: 8
+  # El diseno de menus ahora se configura en menus.yml.
   # Todo el diseño es editable. Los slots van de 0 a 53 (27 slots: 0 a 26).
   layout:
     root:

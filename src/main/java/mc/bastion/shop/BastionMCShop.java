@@ -35,6 +35,7 @@ import java.util.regex.Pattern;
 public final class BastionMCShop extends JavaPlugin implements Listener {
     private Economy economy;
     private FileConfiguration catalog;
+    private FileConfiguration menus;
     private final Map<Material, Product> products = new LinkedHashMap<>();
     private final Map<String, Category> categories = new LinkedHashMap<>();
     private final Set<Material> banned = new HashSet<>();
@@ -61,11 +62,39 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
     @Override public void onEnable() {
         saveDefaultConfig();
         saveResource("catalog.yml", false);
+        saveResource("menus.yml", false);
+        loadMenus();
         if (!setupEconomy()) { getLogger().severe("Vault no tiene proveedor de economia. Se desactiva BastionMCShop."); getServer().getPluginManager().disablePlugin(this); return; }
         loadCatalog();
         getServer().getPluginManager().registerEvents(this, this);
         getLogger().info("BastionMCShop iniciado: " + categories.size() + " categorias, " + products.size() + " productos.");
     }
+    private void loadMenus() {
+        menus=YamlConfiguration.loadConfiguration(new File(getDataFolder(), "menus.yml"));
+        validateMenus();
+    }
+    private void validateMenus() {
+        for(String group:List.of("root","category","item","confirm")) {
+            String base="shop.layout."+group;
+            int size=group.equals("root")?45:group.equals("confirm")?27:54;
+            Set<Integer> occupied=new HashSet<>();
+            for(String path:List.of("slots","buy-slots","sell-slots")) {
+                if(!menus.contains(base+"."+path))continue;
+                for(int n:menus.getIntegerList(base+"."+path)) {
+                    if(n<0||n>=size||!occupied.add(n))getLogger().warning("Slot duplicado o fuera de rango: "+base+"."+path+" -> "+n);
+                }
+            }
+            for(String path:List.of("head-slot","back-slot","previous-slot","next-slot","page-slot","preview-slot","accept-slot","cancel-slot","info-slot")) {
+                if(!menus.contains(base+"."+path))continue;
+                int n=menus.getInt(base+"."+path);
+                if(n<0||n>=size||!occupied.add(n))getLogger().warning("Slot duplicado o fuera de rango: "+base+"."+path+" -> "+n);
+            }
+        }
+    }
+    private String menuString(String path,String fallback) { return menus.getString(path,getConfig().getString(path,fallback)); }
+    private List<String> menuStrings(String path) { return menus.contains(path)?menus.getStringList(path):getConfig().getStringList(path); }
+    private int menuInt(String path,int fallback) {return menus.getInt(path,getConfig().getInt(path,fallback));}
+    private boolean menuBool(String path,boolean fallback) {return menus.getBoolean(path,getConfig().getBoolean(path,fallback));}
     private boolean setupEconomy() {
         RegisteredServiceProvider<Economy> provider = getServer().getServicesManager().getRegistration(Economy.class);
         economy = provider == null ? null : provider.getProvider();
@@ -137,11 +166,12 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
         item.setItemMeta(meta);return item;
     }
     private ItemStack nav(String material,String name,String... lore) {
-        Material m=Material.matchMaterial(getConfig().getString("shop."+material,"ARROW"));
+        Material m=Material.matchMaterial(menuString("shop."+material,"ARROW"));
         return icon(m==null||!m.isItem()?Material.ARROW:m,name,lore);
     }
+    private List<Integer> menuStringsInt(String path) {return menus.contains(path)?menus.getIntegerList(path):getConfig().getIntegerList(path);}
     private int[] slots(String path, int[] fallback) {
-        List<Integer> values=getConfig().getIntegerList(path);
+        List<Integer> values=menuStringsInt(path);
         if(values.isEmpty()) return fallback;
         Set<Integer> used=new HashSet<>();
         for(Integer slot:values) if(slot==null||slot<0||slot>=54||!used.add(slot)) {
@@ -150,18 +180,18 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
         return values.stream().mapToInt(Integer::intValue).toArray();
     }
     private int[] displaySlots(View view) {
-        return view==View.ROOT ? slots("shop.layout.root.slots",new int[]{20,22,24,29,31,33,38,40})
+        return view==View.ROOT ? slots("shop.layout.root.slots",new int[]{12,14,16,20,22,24,30,32})
             : slots("shop.layout.category.slots",new int[]{10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43});
     }
     private int pageCount(int count,int capacity) { return Math.max(1,(count+capacity-1)/capacity); }
-    private int slot(String key,int fallback){int v=getConfig().getInt("shop.layout."+key,fallback);return v>=0&&v<54?v:fallback;}
+    private int slot(String key,int fallback){int v=menuInt("shop.layout."+key,fallback);return v>=0&&v<54?v:fallback;}
     private String ui(String key,String fallback,String... replacements) {
-        String value=getConfig().getString("shop.texts."+key,fallback);
+        String value=menuString("shop.texts."+key,fallback);
         for(int i=0;i+1<replacements.length;i+=2)value=value.replace("{"+replacements[i]+"}",replacements[i+1]);
         return value;
     }
     private List<String> uiLore(String key,List<String> fallback,String... replacements){
-        List<String> values=getConfig().getStringList("shop.texts."+key);
+        List<String> values=menuStrings("shop.texts."+key);
         if(values.isEmpty())values=fallback;
         List<String> result=new ArrayList<>();
         for(String value:values){for(int i=0;i+1<replacements.length;i+=2)value=value.replace("{"+replacements[i]+"}",replacements[i+1]);result.add(value);}
@@ -172,7 +202,7 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
         return icon(material,ui(key,fallback,replacements),lore.toArray(String[]::new));
     }
     private Material configuredMaterial(String path,Material fallback) {
-        Material m=Material.matchMaterial(getConfig().getString(path,fallback.name()));
+        Material m=Material.matchMaterial(menuString(path,fallback.name()));
         return m!=null&&m.isItem()?m:fallback;
     }
     private void decorate(Inventory inv,Player player,String layout) {
@@ -180,13 +210,13 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
         Material border=configuredMaterial(base+".border-material",Material.LIGHT_BLUE_STAINED_GLASS_PANE);
         ItemStack panel=icon(border,ui("panel-name"," "),uiLore("panel-lore",List.of()).toArray(String[]::new));
         for(int i=0;i<inv.getSize();i++)inv.setItem(i,null);
-        boolean enabled=getConfig().getBoolean(base+".border-enabled",true);
+        boolean enabled=menuBool(base+".border-enabled",true);
         if(enabled)for(int i=0;i<inv.getSize();i++){
             int row=i/9,col=i%9;
             if(row==0||row==inv.getSize()/9-1||col==0||col==8)inv.setItem(i,panel.clone());
         }
-        for(int i:getConfig().getIntegerList(base+".extra-panels"))if(i>=0&&i<inv.getSize())inv.setItem(i,panel.clone());
-        int head=inv.getSize()==27?getConfig().getInt(base+".head-slot",22):slot(layout+".head-slot",49);
+        for(int i:menuStringsInt(base+".extra-panels"))if(i>=0&&i<inv.getSize())inv.setItem(i,panel.clone());
+        int head=inv.getSize()==27?menuInt(base+".head-slot",22):slot(layout+".head-slot",layout.equals("root")?44:49);
         if(head>=0&&head<inv.getSize())inv.setItem(head,playerInfo(player));
     }
     private ItemStack playerInfo(Player player) {
@@ -198,7 +228,7 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
         head.setItemMeta(meta);return head;
     }
     private void refreshBalance(Inventory inv,Player player,String layout) {
-        int head=inv.getSize()==27?getConfig().getInt("shop.layout."+layout+".head-slot",22):slot(layout+".head-slot",49);
+        int head=inv.getSize()==27?menuInt("shop.layout."+layout+".head-slot",22):slot(layout+".head-slot",layout.equals("root")?44:49);
         if(head>=0&&head<inv.getSize())inv.setItem(head,playerInfo(player));
     }
     private ItemStack control(String key,String materialKey,String defaultName,String... replacements) {
@@ -207,24 +237,25 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
     }
     private void openRoot(Player player,int page) {
         List<Category> list=new ArrayList<>(categories.values());int[] positions=displaySlots(View.ROOT);
-        int pages=pageCount(list.size(),positions.length);page=Math.max(0,Math.min(page,pages-1));
-        Inventory inv=inventory(View.ROOT,null,null,page,54,text(ui("root-title",getConfig().getString("shop.title","BASTION SHOP"),"page",""+(page+1),"pages",""+pages)));
+        int pages=1;page=0;
+        Inventory inv=inventory(View.ROOT,null,null,page,45,text(ui("root-title",menuString("shop.title","BASTION SHOP"),"page",""+(page+1),"pages",""+pages)));
         decorate(inv,player,"root");
         for(int i=0;i<positions.length&&page*positions.length+i<list.size();i++){
             Category c=list.get(page*positions.length+i);
-            inv.setItem(positions[i],named(c.icon,"category-name","{category}","category",c.name,"key",c.key));
+            Material displayIcon=configuredMaterial("shop.categories."+c.key+".material",c.icon);
+            String categoryName=menuString("shop.categories."+c.key+".name",ui("category-name","{category}","category",c.name,"key",c.key));
+            inv.setItem(positions[i],icon(displayIcon,categoryName));
             ItemMeta meta=inv.getItem(positions[i]).getItemMeta();
-            meta.lore(uiLore("category-lore",List.of("<yellow>Click para ver productos"),"category",c.name,"key",c.key).stream().map(this::text).toList());inv.getItem(positions[i]).setItemMeta(meta);
+            List<String> catLore=menus.contains("shop.categories."+c.key+".lore")?menus.getStringList("shop.categories."+c.key+".lore"):uiLore("category-lore",List.of("<yellow>Click para ver productos"),"category",c.name,"key",c.key);
+            meta.lore(catLore.stream().map(this::text).toList());inv.getItem(positions[i]).setItemMeta(meta);
         }
-        if(page>0)inv.setItem(slot("root.previous-slot",45),control("previous-name","previous-material","<yellow>Anterior"));
-        if(page+1<pages)inv.setItem(slot("root.next-slot",53),control("next-name","next-material","<green>Siguiente"));
-        inv.setItem(slot("root.page-slot",47),named(Material.PAPER,"page-name","<yellow>Página {page}/{pages}","page",""+(page+1),"pages",""+pages));
+
         player.openInventory(inv);
     }
     private void openCategory(Player player,String key,int page) {
         Category c=categories.get(key);if(c==null){openRoot(player,0);return;}
-        int[] positions=displaySlots(View.CATEGORY);int pages=pageCount(c.materials.size(),positions.length);page=Math.max(0,Math.min(page,pages-1));
-        String title=ui("category-title",getConfig().getString("shop.category-title","{category} ({page}/{pages})"),"category",c.name,"page",""+(page+1),"pages",""+pages);
+        int[] positions=slots("shop.category-slots."+key,displaySlots(View.CATEGORY));int pages=pageCount(c.materials.size(),positions.length);page=Math.max(0,Math.min(page,pages-1));
+        String title=ui("category-title",menuString("shop.category-title","{category} ({page}/{pages})"),"category",c.name,"page",""+(page+1),"pages",""+pages);
         Inventory inv=inventory(View.CATEGORY,key,null,page,54,text(title));decorate(inv,player,"category");
         for(int i=0;i<positions.length&&page*positions.length+i<c.materials.size();i++){
             Material m=c.materials.get(page*positions.length+i);Product p=products.get(m);
@@ -236,12 +267,12 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
         inv.setItem(slot("category.back-slot",48),control("back-name","back-material","<gold>Volver"));
         if(page>0)inv.setItem(slot("category.previous-slot",45),control("previous-name","previous-material","<yellow>Anterior"));
         if(page+1<pages)inv.setItem(slot("category.next-slot",53),control("next-name","next-material","<green>Siguiente"));
-        inv.setItem(slot("category.page-slot",47),named(Material.PAPER,"page-name","<yellow>Página {page}/{pages}","page",""+(page+1),"pages",""+pages));
+
         player.openInventory(inv);
     }
     private void openProduct(Player player,Material m,int categoryPage) {
         Product p=products.get(m);if(p==null)return;
-        Inventory inv=inventory(View.PRODUCT,p.category,m,categoryPage,54,text(ui("item-title",getConfig().getString("shop.product-title","{item}"),"item",pretty(m))));
+        Inventory inv=inventory(View.PRODUCT,p.category,m,categoryPage,54,text(ui("item-title",menuString("shop.product-title","{item}"),"item",pretty(m))));
         decorate(inv,player,"item");int max=m.getMaxStackSize();
         inv.setItem(slot("item.preview-slot",13),named(m,"item-preview-name","<white>{item}","item",pretty(m)));
         int[] amounts={1,16,32,max},buys=slots("shop.layout.item.buy-slots",new int[]{20,22,24,26}),sells=slots("shop.layout.item.sell-slots",new int[]{29,31,33,35});
@@ -338,13 +369,13 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
     private void confirm(Player player) {
         Sale sale=scan(player);
         if(sale.lines.isEmpty()){message(player,"nothing-to-sell");return;}
-        Inventory inv=inventory(View.CONFIRM,null,null,0,27,text(getConfig().getString("shop.confirmation-title","Confirmar venta")));
+        Inventory inv=inventory(View.CONFIRM,null,null,0,27,text(menuString("shop.confirmation-title","Confirmar venta")));
         decorate(inv,player,"confirm");
-        inv.setItem(getConfig().getInt("shop.layout.confirm.accept-slot",11),control("accept-name","accept-material","<green><bold>ACEPTAR VENTA"));
+        inv.setItem(menuInt("shop.layout.confirm.accept-slot",11),control("accept-name","accept-material","<green><bold>ACEPTAR VENTA"));
         ItemStack info=control("confirm-info-name","info-material","<yellow>Vender {quantity} objetos","quantity",""+sale.quantity,"total",money(sale.total));
         ItemMeta im=info.getItemMeta();im.lore(uiLore("confirm-info-lore",List.of("<green>Recibir: {total}","<gray>No incluye armadura ni segunda mano"),"quantity",""+sale.quantity,"total",money(sale.total)).stream().map(this::text).toList());info.setItemMeta(im);
-        inv.setItem(getConfig().getInt("shop.layout.confirm.info-slot",13),info);
-        inv.setItem(getConfig().getInt("shop.layout.confirm.cancel-slot",15),control("cancel-name","cancel-material","<red><bold>CANCELAR"));player.openInventory(inv);
+        inv.setItem(menuInt("shop.layout.confirm.info-slot",13),info);
+        inv.setItem(menuInt("shop.layout.confirm.cancel-slot",15),control("cancel-name","cancel-material","<red><bold>CANCELAR"));player.openInventory(inv);
     }
     private void sellAll(Player player) {
         Sale sale=scan(player);
@@ -365,7 +396,7 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
         if(command.getName().equalsIgnoreCase("bastionshop")) {
             if(!sender.hasPermission("bastionmcshop.admin")){sender.sendMessage(text("<red>Sin permiso"));return true;}
             if(args.length==1&&args[0].equalsIgnoreCase("reload")) {
-                reloadConfig();loadCatalog();sender.sendMessage(text(getConfig().getString("messages.reloaded","Recargado")));return true;
+                reloadConfig();loadMenus();loadCatalog();sender.sendMessage(text(getConfig().getString("messages.reloaded","Recargado")));return true;
             }
             sender.sendMessage(text(getConfig().getString("messages.invalid-command","/bastionshop reload")));return true;
         }
@@ -385,6 +416,7 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
         }
         return false;
     }
+    private int indexOf(int[] values,int slot) {for(int i=0;i<values.length;i++)if(values[i]==slot)return i;return -1;}
     private int displayIndex(int slot,View view) {int[] slots=displaySlots(view);for(int i=0;i<slots.length;i++)if(slots[i]==slot)return i;return -1;}
     @EventHandler public void onClick(InventoryClickEvent event) {
         if(!(event.getView().getTopInventory().getHolder() instanceof ShopHolder h))return;
@@ -393,15 +425,13 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
         int slot=event.getRawSlot();if(slot<0||slot>=event.getView().getTopInventory().getSize())return;
         switch(h.view) {
             case ROOT -> {
-                if(slot==slot("root.previous-slot",45)&&h.page>0)openRoot(player,h.page-1);
-                else if(slot==slot("root.next-slot",53))openRoot(player,h.page+1);
-                else if(slot<54){List<Category> cs=new ArrayList<>(categories.values());int pos=displayIndex(slot,View.ROOT);int index=h.page*displaySlots(View.ROOT).length+pos;if(pos>=0&&index<cs.size())openCategory(player,cs.get(index).key,0);}
+                if(slot<45){List<Category> cs=new ArrayList<>(categories.values());int pos=displayIndex(slot,View.ROOT);int index=h.page*displaySlots(View.ROOT).length+pos;if(pos>=0&&index<cs.size())openCategory(player,cs.get(index).key,0);}
             }
             case CATEGORY -> {
                 if(slot==slot("category.back-slot",48))openRoot(player,0);
                 else if(slot==slot("category.previous-slot",45)&&h.page>0)openCategory(player,h.category,h.page-1);
                 else if(slot==slot("category.next-slot",53))openCategory(player,h.category,h.page+1);
-                else if(slot<54){Category c=categories.get(h.category);int pos=displayIndex(slot,View.CATEGORY);int index=h.page*displaySlots(View.CATEGORY).length+pos;if(pos>=0&&c!=null&&index<c.materials.size())openProduct(player,c.materials.get(index),h.page);}
+                else if(slot<54){Category c=categories.get(h.category);int[] positions=slots("shop.category-slots."+h.category,displaySlots(View.CATEGORY));int pos=indexOf(positions,slot);int index=h.page*positions.length+pos;if(pos>=0&&c!=null&&index<c.materials.size())openProduct(player,c.materials.get(index),h.page);}
             }
             case PRODUCT -> {
                 if(slot==slot("item.back-slot",48)){openCategory(player,h.category,h.page);return;}
@@ -414,8 +444,8 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
                 }
             }
             case CONFIRM -> {
-                if(slot==getConfig().getInt("shop.layout.confirm.accept-slot",11)){player.closeInventory();sellAll(player);}
-                else if(slot==getConfig().getInt("shop.layout.confirm.cancel-slot",15))player.closeInventory();
+                if(slot==menuInt("shop.layout.confirm.accept-slot",11)){player.closeInventory();sellAll(player);}
+                else if(slot==menuInt("shop.layout.confirm.cancel-slot",15))player.closeInventory();
             }
         }
     }

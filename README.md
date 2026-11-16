@@ -45,3 +45,15 @@ La configuracion de slots, paneles, titulos, nombres y lore esta en `config.yml`
 Las categorias muestran 8 botones separados, los productos usan hasta 28 espacios por pagina y la cabeza del jugador muestra saldo Vault.
 IMPORTANTE: los YAML existentes NO se sobrescriben automaticamente; copia `shop.layout` y `shop.texts` del ZIP al config del servidor.
 Evita colocar slots de productos, botones y cabeza en el mismo lugar. La pagina se calcula automaticamente.
+
+
+## v1.0.3 - menus.yml
+- `plugins/BastionMCShop/menus.yml` controla títulos, textos, materiales, paneles y posiciones.
+- Menú principal de 45 slots, 8 categorías centradas, sin flechas; cabeza del jugador en slot 44.
+- Categorías de 54 slots, 28 productos por página y botones de navegación.
+- `shop.layout.root.slots` ordena las 8 categorías según el orden en `catalog.yml`.
+- `shop.category-slots.<clave>` permite asignar posiciones de productos de una categoría.
+- `shop.categories.<clave>.material`, `.name`, `.lore` personalizan el icono de la categoría.
+- `/bastionshop reload` vuelve a leer config.yml, menus.yml y catalog.yml.
+- IMPORTANTE: para servidores que ya tengan BastionMCShop instalado, `menus.yml` se creará automáticamente, pero `catalog.yml` existente NO se sobrescribe. Si deseas los productos nuevos, combina las entradas del catálogo del ZIP con el tuyo.
+- Precios de catálogo ampliado son ejemplos que deben revisarse antes de abrir al público.
