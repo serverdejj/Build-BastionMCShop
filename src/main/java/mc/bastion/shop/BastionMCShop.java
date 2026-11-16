@@ -135,9 +135,9 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
         if(lore.length>0) meta.lore(Arrays.stream(lore).map(this::text).toList());
         item.setItemMeta(meta);return item;
     }
-    private ItemStack nav(String material,String name) {
+    private ItemStack nav(String material,String name,String... lore) {
         Material m=Material.matchMaterial(getConfig().getString("shop."+material,"ARROW"));
-        return icon(m==null||!m.isItem()?Material.ARROW:m,name);
+        return icon(m==null||!m.isItem()?Material.ARROW:m,name,lore);
     }
     private void openRoot(Player player,int page) {
         List<Category> list=new ArrayList<>(categories.values());int pages=Math.max(1,(list.size()+44)/45);page=Math.max(0,Math.min(page,pages-1));
