@@ -1,31 +1,33 @@
-# BastionMCShop - EDITA AQUI TODOS LOS MENUS Y POSICIONES.
-# Slots desde 0. Menu principal: 0-44; demas menus: 0-53; confirmacion: 0-26.
-# Cambia materiales, titulos, nombres, lore, paneles y slots; luego /bastionshop reload.
-# shop.categories permite sobreescribir material, nombre y lore de cada categoria.
-# shop.category-slots permite definir la distribucion de productos por categoria.
+# BastionMCShop - Menu principal adaptado EXACTAMENTE del archivo zMenu proporcionado.
+# Las 11 categorias, slots, materiales, texturas, nombres y lore son editables.
+# Los precios y productos se editan en catalog.yml.
+# IMPORTANTE: Si ya existe menus.yml/catalog.yml en el servidor, haz copia y reemplazalos para aplicar este diseño.
 shop:
   title: <gradient:#00C135:#17FF00><bold>BASTION SHOP</bold></gradient>
   category-title: '<gold>TIENDA: {category} <gray>({page}/{pages})'
   product-title: <yellow>{item}
   confirmation-title: <red><bold>CONFIRMAR VENTA
   filler: GRAY_STAINED_GLASS_PANE
-  categories-per-page: 8
+  categories-per-page: 11
   products-per-page: 8
   layout:
     root:
-      border-enabled: true
+      border-enabled: false
       border-material: LIGHT_BLUE_STAINED_GLASS_PANE
       extra-panels: []
       slots:
+      - 10
       - 12
+      - 13
       - 14
       - 16
-      - 20
+      - 19
+      - 21
       - 22
-      - 24
-      - 30
-      - 32
-      head-slot: 44
+      - 23
+      - 25
+      - 31
+      head-slot: -1
     category:
       border-enabled: true
       border-material: GRAY_STAINED_GLASS_PANE
@@ -90,7 +92,7 @@ shop:
       cancel-slot: 15
       head-slot: 22
   texts:
-    root-title: <gray>Menú <light_purple><bold>TIENDA
+    root-title: '&8&nTienda del Servidor | (#1.0)'
     category-title: '<gray>Tienda: <light_purple><bold>{category} <dark_gray>[{page}/{pages}]'
     item-title: <yellow>{item}
     panel-name: ' '
@@ -132,5 +134,150 @@ shop:
   accept-material: LIME_CONCRETE
   cancel-material: RED_CONCRETE
   info-material: PAPER
-  categories: {}
+  categories:
+    maderas:
+      slot: 10
+      material: PLAYER_HEAD
+      name: '&fTienda de &#DDCA2E&lMADERAS'
+      lore:
+      - '&8⌈ Categoría ⌋'
+      - ''
+      - '&7Encuentra una gran variedad'
+      - '&7de &#DDCA2E&nMaderas&r&7 en esta categoría'
+      - ''
+      - ' &8▸ &fArtículos: &#DDCA2E&n17'
+      - ''
+      - '&f☄ &8| &#DDCA2EClic Izq. para abrir'
+      texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmQyZTMxMDg3OWE2NDUwYWY1NjI1YmNkNDUwOTNkZDdlNWQ4ZjgyN2NjYmZlYWM2OWM4MTUzNzc2ODQwNmIifX19
+    bloques:
+      slot: 12
+      material: GRASS_BLOCK
+      name: '&fTienda de &#52FF50&lBLOQUES'
+      lore:
+      - '&8⌈ Categoría ⌋'
+      - ''
+      - '&7Encuentra una gran variedad'
+      - '&7de &#52FF50&nBloques&r&7 en esta categoría'
+      - ''
+      - ' &8▸ &fArtículos: &#52FF50&n50'
+      - ''
+      - '&f☄ &8| &#52FF50Clic Izq. para abrir'
+    minerales:
+      slot: 13
+      material: DIAMOND
+      name: '&fTienda de &#50C6FF&lMINERALES'
+      lore:
+      - '&8⌈ Categoría ⌋'
+      - ''
+      - '&7Encuentra una gran variedad'
+      - '&7de &#50C6FF&nMinerales&r&7 en esta categoría'
+      - ''
+      - ' &8▸ &fArtículos: &#50C6FF&n21'
+      - ''
+      - '&f☄ &8| &#50C6FFClic Izq. para abrir'
+    mecanismos:
+      slot: 14
+      material: REDSTONE
+      name: '&fTienda de &#DD2E2E&lMECANISMOS'
+      lore:
+      - '&8⌈ Categoría ⌋'
+      - ''
+      - '&7Encuentra una gran variedad'
+      - '&7de &#DD2E2E&nMecanismos&r&7 en esta categoría'
+      - ''
+      - ' &8▸ &fArtículos: &#DD2E2E&n17'
+      - ''
+      - '&f☄ &8| &#DD2E2EClic Izq. para abrir'
+    utilidades:
+      slot: 16
+      material: CAMPFIRE
+      name: '&fTienda de &#DD2E83&lUTILIDADES'
+      lore:
+      - '&8⌈ Categoría ⌋'
+      - ''
+      - '&7Encuentra una gran variedad'
+      - '&7de &#DD2E83&nUtilidades&r&7 en esta categoría'
+      - ''
+      - ' &8▸ &fArtículos: &#DD2E83&n17'
+      - ''
+      - '&f☄ &8| &#DD2E83Clic Izq. para abrir'
+    decoracion:
+      slot: 19
+      material: PLAYER_HEAD
+      name: '&fTienda de &#FF00D9&lDECORACIÓN'
+      lore:
+      - '&8⌈ Categoría ⌋'
+      - ''
+      - '&7Encuentra una gran variedad'
+      - '&7de &#FF00D9&nDecoraciones&r&7 en esta categoría'
+      - ''
+      - ' &8▸ &fArtículos: &#FF00D9&n17'
+      - ''
+      - '&f☄ &8| &#FF00D9Clic Izq. para abrir'
+      texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTg0NGU1ZjczY2M0NDY5MDgzMDY1OThhN2NlYWJjOGFjYTU2ZmM0OWMzMzFiZTI3OTcyMzBiY2QwNzA3OGM2In19fQ==
+    miscelaneos:
+      slot: 21
+      material: COBWEB
+      name: '&fTienda de &#542EDD&lMISCELÁNEOS'
+      lore:
+      - '&8⌈ Categoría ⌋'
+      - ''
+      - '&7Encuentra una gran variedad'
+      - '&7de &#542EDD&nMisceláneos&r&7 en esta categoría'
+      - ''
+      - ' &8▸ &fArtículos: &#542EDD&n17'
+      - ''
+      - '&f☄ &8| &#542EDDClic Izq. para abrir'
+    comida:
+      slot: 22
+      material: BEEF
+      name: '&fTienda de &#DD6E2E&lCOMIDA'
+      lore:
+      - '&8⌈ Categoría ⌋'
+      - ''
+      - '&7Encuentra una gran variedad'
+      - '&7de &#DD6E2E&nComida&r&7 en esta categoría'
+      - ''
+      - ' &8▸ &fArtículos: &#DD6E2E&n17'
+      - ''
+      - '&f☄ &8| &#DD6E2EClic Izq. para abrir'
+    cultivos:
+      slot: 23
+      material: WHEAT
+      name: '&fTienda de &#DDCA2E&lCULTIVOS'
+      lore:
+      - '&8⌈ Categoría ⌋'
+      - ''
+      - '&7Encuentra una gran variedad'
+      - '&7de &#DDCA2E&nCultivos&r&7 en esta categoría'
+      - ''
+      - ' &8▸ &fArtículos: &#DDCA2E&n17'
+      - ''
+      - '&f☄ &8| &#DDCA2EClic Izq. para abrir'
+    equipamiento:
+      slot: 25
+      material: IRON_CHESTPLATE
+      name: '&fTienda de &#7500FF&lEQUIPAMIENTO'
+      lore:
+      - '&8⌈ Categoría ⌋'
+      - ''
+      - '&7Encuentra una gran variedad'
+      - '&7de &#7500FF&nEquipamientos&r&7 en esta categoría'
+      - ''
+      - ' &8▸ &fArtículos: &#7500FF&n17'
+      - ''
+      - '&f☄ &8| &#7500FFClic Izq. para abrir'
+    mobs:
+      slot: 31
+      material: BONE
+      name: '&fTienda de &#2EDDC1&lDROPS DE MOBS'
+      lore:
+      - '&8⌈ Categoría ⌋'
+      - ''
+      - '&7Encuentra una gran variedad'
+      - '&7de &#2EDDC1&nDrops&r&7 en esta categoría'
+      - ''
+      - ' &8▸ &fArtículos: &#2EDDC1&n17'
+      - ''
+      - '&f☄ &8| &#2EDDC1Clic Izq. para abrir'
   category-slots: {}

@@ -1,5 +1,3 @@
-# PRECIOS INICIALES PROPUESTOS: revisa y equilibra antes de abrir al publico.
-# Venta = 50% por defecto. Los objetos prohibidos nunca se incluyen.
 blacklist:
 - SPAWNER
 - TRIAL_SPAWNER
@@ -16,147 +14,11 @@ blacklist:
 - DRAGON_HEAD
 - PIGLIN_HEAD
 categories:
-  minerales:
-    name: <aqua><bold>MINERALES
-    icon: DIAMOND
+  maderas:
+    name: MADERAS
+    icon: PLAYER_HEAD
     items:
-      IRON_NUGGET: 1
-      IRON_INGOT: 9
-      IRON_BLOCK: 81
-      GOLD_NUGGET: 2
-      GOLD_INGOT: 18
-      GOLD_BLOCK: 162
-      COPPER_INGOT: 5
-      COPPER_BLOCK: 45
-      COAL: 6
-      COAL_BLOCK: 54
-      DIAMOND: 150
-      DIAMOND_BLOCK: 1350
-      EMERALD: 120
-      EMERALD_BLOCK: 1080
-      LAPIS_LAZULI: 7
-      LAPIS_BLOCK: 63
-      REDSTONE: 5
-      REDSTONE_BLOCK: 45
-      QUARTZ: 12
-      AMETHYST_SHARD: 10
-      NETHERITE_SCRAP: 650
-      RAW_IRON: 9
-      RAW_GOLD: 18
-      RAW_COPPER: 5
-      RAW_IRON_BLOCK: 81
-      RAW_GOLD_BLOCK: 162
-      RAW_COPPER_BLOCK: 45
-      NETHERITE_INGOT: 2600
-      NETHERITE_BLOCK: 23400
-      ANCIENT_DEBRIS: 650
-      COPPER_NUGGET: 1
-  cultivos:
-    name: <green><bold>GRANJA Y CULTIVOS
-    icon: WHEAT
-    items:
-      WHEAT: 4
-      WHEAT_SEEDS: 1
-      CARROT: 4
-      POTATO: 4
-      BEETROOT: 4
-      BEETROOT_SEEDS: 1
-      SUGAR_CANE: 3
       BAMBOO: 1
-      CACTUS: 3
-      PUMPKIN: 12
-      MELON_SLICE: 2
-      MELON: 18
-      COCOA_BEANS: 5
-      NETHER_WART: 8
-      KELP: 2
-      SWEET_BERRIES: 3
-      GLOW_BERRIES: 4
-      TORCHFLOWER_SEEDS: 25
-      PITCHER_POD: 25
-      PITCHER_PLANT: 35
-      TORCHFLOWER: 35
-      VINE: 5
-      LILY_PAD: 8
-      SEA_PICKLE: 6
-      BROWN_MUSHROOM: 6
-      RED_MUSHROOM: 6
-  redstone:
-    name: <red><bold>REDSTONE
-    icon: REDSTONE
-    items:
-      REDSTONE_TORCH: 6
-      REPEATER: 24
-      COMPARATOR: 45
-      PISTON: 50
-      STICKY_PISTON: 80
-      OBSERVER: 70
-      HOPPER: 110
-      DISPENSER: 65
-      DROPPER: 45
-      LEVER: 5
-      STONE_BUTTON: 3
-      REDSTONE_LAMP: 55
-      RAIL: 8
-      POWERED_RAIL: 35
-      DETECTOR_RAIL: 30
-      TARGET: 20
-      DAYLIGHT_DETECTOR: 40
-      ACTIVATOR_RAIL: 30
-      HONEY_BLOCK: 35
-      SLIME_BLOCK: 90
-      TRIPWIRE_HOOK: 12
-      HEAVY_WEIGHTED_PRESSURE_PLATE: 20
-      LIGHT_WEIGHTED_PRESSURE_PLATE: 20
-      COPPER_BULB: 55
-      TNT: 120
-  mobs:
-    name: <dark_red><bold>LOOT DE MOBS
-    icon: BONE
-    items:
-      BONE: 6
-      ROTTEN_FLESH: 2
-      STRING: 5
-      GUNPOWDER: 12
-      SPIDER_EYE: 7
-      ENDER_PEARL: 35
-      BLAZE_ROD: 45
-      GHAST_TEAR: 130
-      SLIME_BALL: 20
-      MAGMA_CREAM: 35
-      PHANTOM_MEMBRANE: 45
-      SHULKER_SHELL: 170
-      BREEZE_ROD: 75
-      WIND_CHARGE: 18
-      BLAZE_POWDER: 22
-  decoracion:
-    name: <light_purple><bold>DECORACIÓN
-    icon: FLOWER_POT
-    items:
-      FLOWER_POT: 15
-      PAINTING: 20
-      ITEM_FRAME: 18
-      GLOW_ITEM_FRAME: 35
-      LANTERN: 28
-      SOUL_LANTERN: 32
-      WHITE_CARPET: 4
-      RED_CARPET: 5
-      WHITE_STAINED_GLASS: 8
-      BLUE_STAINED_GLASS: 8
-      DANDELION: 4
-      POPPY: 4
-      OXEYE_DAISY: 4
-      TORCHFLOWER: 60
-      CHAIN: 15
-      ARMOR_STAND: 30
-      CANDLE: 12
-      WHITE_CANDLE: 14
-      PINK_CANDLE: 14
-      DECORATED_POT: 40
-  bloques:
-    name: <gold><bold>BLOQUES DE CONSTRUCCIÓN
-    icon: BRICKS
-    items:
       OAK_LOG: 8
       OAK_PLANKS: 2
       OAK_STAIRS: 3
@@ -183,30 +45,6 @@ categories:
       JUNGLE_PLANKS: 2
       ACACIA_LOG: 8
       ACACIA_PLANKS: 2
-      STONE: 3
-      COBBLESTONE: 2
-      STONE_BRICKS: 3
-      STONE_BRICK_STAIRS: 4.5
-      STONE_BRICK_SLAB: 1.5
-      DEEPSLATE: 4
-      COBBLED_DEEPSLATE: 3
-      DEEPSLATE_BRICKS: 4
-      TUFF: 4
-      TUFF_BRICKS: 5
-      ANDESITE: 3
-      DIORITE: 3
-      GRANITE: 3
-      SANDSTONE: 4
-      RED_SANDSTONE: 5
-      BRICKS: 8
-      GLASS: 6
-      OBSIDIAN: 40
-      BASALT: 5
-      BLACKSTONE: 5
-      NETHERRACK: 2
-      END_STONE: 10
-      PRISMARINE: 15
-      QUARTZ_BLOCK: 48
       STRIPPED_OAK_LOG: 12
       OAK_WOOD: 12
       STRIPPED_OAK_WOOD: 12
@@ -362,6 +200,34 @@ categories:
       WARPED_PRESSURE_PLATE: 6
       WARPED_SIGN: 6
       WARPED_HANGING_SIGN: 12
+  bloques:
+    name: BLOQUES
+    icon: GRASS_BLOCK
+    items:
+      STONE: 3
+      COBBLESTONE: 2
+      STONE_BRICKS: 3
+      STONE_BRICK_STAIRS: 4.5
+      STONE_BRICK_SLAB: 1.5
+      DEEPSLATE: 4
+      COBBLED_DEEPSLATE: 3
+      DEEPSLATE_BRICKS: 4
+      TUFF: 4
+      TUFF_BRICKS: 5
+      ANDESITE: 3
+      DIORITE: 3
+      GRANITE: 3
+      SANDSTONE: 4
+      RED_SANDSTONE: 5
+      BRICKS: 8
+      GLASS: 6
+      OBSIDIAN: 40
+      BASALT: 5
+      BLACKSTONE: 5
+      NETHERRACK: 2
+      END_STONE: 10
+      PRISMARINE: 15
+      QUARTZ_BLOCK: 48
       STONE_BRICK_WALL: 4
       MOSSY_STONE_BRICK_STAIRS: 7.5
       MOSSY_STONE_BRICK_SLAB: 2.5
@@ -538,9 +404,101 @@ categories:
       MOSS_CARPET: 3
       AZALEA_LEAVES: 5
       FLOWERING_AZALEA_LEAVES: 6
-  animales:
-    name: <yellow><bold>LOOT DE ANIMALES
-    icon: LEATHER
+  minerales:
+    name: MINERALES
+    icon: DIAMOND
+    items:
+      IRON_NUGGET: 1
+      IRON_INGOT: 9
+      IRON_BLOCK: 81
+      GOLD_NUGGET: 2
+      GOLD_INGOT: 18
+      GOLD_BLOCK: 162
+      COPPER_INGOT: 5
+      COPPER_BLOCK: 45
+      COAL: 6
+      COAL_BLOCK: 54
+      DIAMOND: 150
+      DIAMOND_BLOCK: 1350
+      EMERALD: 120
+      EMERALD_BLOCK: 1080
+      LAPIS_LAZULI: 7
+      LAPIS_BLOCK: 63
+      REDSTONE: 5
+      REDSTONE_BLOCK: 45
+      QUARTZ: 12
+      AMETHYST_SHARD: 10
+      NETHERITE_SCRAP: 650
+      RAW_IRON: 9
+      RAW_GOLD: 18
+      RAW_COPPER: 5
+      RAW_IRON_BLOCK: 81
+      RAW_GOLD_BLOCK: 162
+      RAW_COPPER_BLOCK: 45
+      NETHERITE_INGOT: 2600
+      NETHERITE_BLOCK: 23400
+      ANCIENT_DEBRIS: 650
+      COPPER_NUGGET: 1
+  mecanismos:
+    name: MECANISMOS
+    icon: REDSTONE
+    items:
+      REDSTONE_TORCH: 6
+      REPEATER: 24
+      COMPARATOR: 45
+      PISTON: 50
+      STICKY_PISTON: 80
+      OBSERVER: 70
+      DISPENSER: 65
+      DROPPER: 45
+      LEVER: 5
+      STONE_BUTTON: 3
+      REDSTONE_LAMP: 55
+      RAIL: 8
+      POWERED_RAIL: 35
+      DETECTOR_RAIL: 30
+      TARGET: 20
+      DAYLIGHT_DETECTOR: 40
+      ACTIVATOR_RAIL: 30
+      HONEY_BLOCK: 35
+      SLIME_BLOCK: 90
+      TRIPWIRE_HOOK: 12
+      HEAVY_WEIGHTED_PRESSURE_PLATE: 20
+      LIGHT_WEIGHTED_PRESSURE_PLATE: 20
+      COPPER_BULB: 55
+      TNT: 120
+  utilidades:
+    name: UTILIDADES
+    icon: CAMPFIRE
+    items:
+      HOPPER: 110
+  decoracion:
+    name: DECORACIÓN
+    icon: PLAYER_HEAD
+    items:
+      FLOWER_POT: 15
+      PAINTING: 20
+      ITEM_FRAME: 18
+      GLOW_ITEM_FRAME: 35
+      LANTERN: 28
+      SOUL_LANTERN: 32
+      WHITE_CARPET: 4
+      RED_CARPET: 5
+      WHITE_STAINED_GLASS: 8
+      BLUE_STAINED_GLASS: 8
+      DANDELION: 4
+      POPPY: 4
+      OXEYE_DAISY: 4
+      TORCHFLOWER: 60
+      CHAIN: 15
+      ARMOR_STAND: 30
+      CANDLE: 12
+      WHITE_CANDLE: 14
+      PINK_CANDLE: 14
+      DECORATED_POT: 40
+  miscelaneos:
+    name: MISCELÁNEOS
+    icon: COBWEB
     items:
       LEATHER: 10
       FEATHER: 4
@@ -555,8 +513,8 @@ categories:
       HONEYCOMB: 12
       HONEY_BOTTLE: 18
   comida:
-    name: <gold><bold>COMIDA
-    icon: COOKED_BEEF
+    name: COMIDA
+    icon: BEEF
     items:
       BREAD: 12
       APPLE: 8
@@ -582,3 +540,55 @@ categories:
       MUSHROOM_STEW: 18
       BEETROOT_SOUP: 20
       SUSPICIOUS_STEW: 30
+  cultivos:
+    name: CULTIVOS
+    icon: WHEAT
+    items:
+      WHEAT: 4
+      WHEAT_SEEDS: 1
+      CARROT: 4
+      POTATO: 4
+      BEETROOT: 4
+      BEETROOT_SEEDS: 1
+      SUGAR_CANE: 3
+      CACTUS: 3
+      PUMPKIN: 12
+      MELON_SLICE: 2
+      MELON: 18
+      COCOA_BEANS: 5
+      NETHER_WART: 8
+      KELP: 2
+      SWEET_BERRIES: 3
+      GLOW_BERRIES: 4
+      TORCHFLOWER_SEEDS: 25
+      PITCHER_POD: 25
+      PITCHER_PLANT: 35
+      TORCHFLOWER: 35
+      VINE: 5
+      LILY_PAD: 8
+      SEA_PICKLE: 6
+      BROWN_MUSHROOM: 6
+      RED_MUSHROOM: 6
+  equipamiento:
+    name: EQUIPAMIENTO
+    icon: IRON_CHESTPLATE
+    items: {}
+  mobs:
+    name: DROPS DE MOBS
+    icon: BONE
+    items:
+      BONE: 6
+      ROTTEN_FLESH: 2
+      STRING: 5
+      GUNPOWDER: 12
+      SPIDER_EYE: 7
+      ENDER_PEARL: 35
+      BLAZE_ROD: 45
+      GHAST_TEAR: 130
+      SLIME_BALL: 20
+      MAGMA_CREAM: 35
+      PHANTOM_MEMBRANE: 45
+      SHULKER_SHELL: 170
+      BREEZE_ROD: 75
+      WIND_CHARGE: 18
+      BLAZE_POWDER: 22

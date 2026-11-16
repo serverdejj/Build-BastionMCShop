@@ -147,7 +147,7 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
         Matcher legacy=LEGACY.matcher(s); b=new StringBuffer();
         while(legacy.find()) legacy.appendReplacement(b,Matcher.quoteReplacement("<"+colors.getOrDefault(Character.toLowerCase(legacy.group(1).charAt(0)),"reset")+">"));
         legacy.appendTail(b);
-        try {return mini.deserialize(b.toString());} catch(Exception e) {return Component.text(value);}
+        try {return mini.deserialize(b.toString()).decoration(net.kyori.adventure.text.format.TextDecoration.ITALIC, false);} catch(Exception e) {return Component.text(value).decoration(net.kyori.adventure.text.format.TextDecoration.ITALIC, false);}
     }
     private String money(double amount) { return getConfig().getString("economy.currency-symbol","$") + String.format(Locale.US,"%,.2f",amount); }
     private void message(Player player,String key,String... pairs) {
@@ -216,7 +216,7 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
             if(row==0||row==inv.getSize()/9-1||col==0||col==8)inv.setItem(i,panel.clone());
         }
         for(int i:menuStringsInt(base+".extra-panels"))if(i>=0&&i<inv.getSize())inv.setItem(i,panel.clone());
-        int head=inv.getSize()==27?menuInt(base+".head-slot",22):slot(layout+".head-slot",layout.equals("root")?44:49);
+        int head=inv.getSize()==27?menuInt(base+".head-slot",22):(layout.equals("root")?menuInt(base+".head-slot",44):slot(layout+".head-slot",49));
         if(head>=0&&head<inv.getSize())inv.setItem(head,playerInfo(player));
     }
     private ItemStack playerInfo(Player player) {
@@ -228,12 +228,30 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
         head.setItemMeta(meta);return head;
     }
     private void refreshBalance(Inventory inv,Player player,String layout) {
-        int head=inv.getSize()==27?menuInt("shop.layout."+layout+".head-slot",22):slot(layout+".head-slot",layout.equals("root")?44:49);
+        int head=inv.getSize()==27?menuInt("shop.layout."+layout+".head-slot",22):(layout.equals("root")?menuInt("shop.layout.root.head-slot",44):slot(layout+".head-slot",49));
         if(head>=0&&head<inv.getSize())inv.setItem(head,playerInfo(player));
     }
     private ItemStack control(String key,String materialKey,String defaultName,String... replacements) {
         Material m=configuredMaterial("shop."+materialKey,Material.ARROW);
         return named(m,key,defaultName,replacements);
+    }
+    private ItemStack categoryIcon(String key, Material material, String name, List<String> lore) {
+        ItemStack item=icon(material,name,lore.toArray(String[]::new));
+        String encoded=menuString("shop.categories."+key+".texture","");
+        if(material==Material.PLAYER_HEAD && !encoded.isBlank()) {
+            try {
+                String decoded=new String(java.util.Base64.getDecoder().decode(encoded),java.nio.charset.StandardCharsets.UTF_8);
+                java.util.regex.Matcher matcher=java.util.regex.Pattern.compile("https?://textures\\.minecraft\\.net/texture/[a-zA-Z0-9]+").matcher(decoded);
+                if(matcher.find()) {
+                    org.bukkit.profile.PlayerProfile profile=Bukkit.createPlayerProfile(java.util.UUID.randomUUID());
+                    org.bukkit.profile.PlayerTextures textures=profile.getTextures();
+                    textures.setSkin(java.net.URI.create(matcher.group()).toURL());
+                    profile.setTextures(textures);
+                    SkullMeta skull=(SkullMeta)item.getItemMeta();skull.setOwnerProfile(profile);item.setItemMeta(skull);
+                }
+            } catch(Exception ex) {getLogger().warning("Textura de cabeza no valida para "+key+": "+ex.getMessage());}
+        }
+        return item;
     }
     private void openRoot(Player player,int page) {
         List<Category> list=new ArrayList<>(categories.values());int[] positions=displaySlots(View.ROOT);
@@ -242,12 +260,13 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
         decorate(inv,player,"root");
         for(int i=0;i<positions.length&&page*positions.length+i<list.size();i++){
             Category c=list.get(page*positions.length+i);
-            Material displayIcon=configuredMaterial("shop.categories."+c.key+".material",c.icon);
-            String categoryName=menuString("shop.categories."+c.key+".name",ui("category-name","{category}","category",c.name,"key",c.key));
-            inv.setItem(positions[i],icon(displayIcon,categoryName));
-            ItemMeta meta=inv.getItem(positions[i]).getItemMeta();
-            List<String> catLore=menus.contains("shop.categories."+c.key+".lore")?menus.getStringList("shop.categories."+c.key+".lore"):uiLore("category-lore",List.of("<yellow>Click para ver productos"),"category",c.name,"key",c.key);
-            meta.lore(catLore.stream().map(this::text).toList());inv.getItem(positions[i]).setItemMeta(meta);
+            String base="shop.categories."+c.key;
+            int position=menuInt(base+".slot",positions[i]);
+            if(position<0||position>=inv.getSize())continue;
+            Material displayIcon=configuredMaterial(base+".material",c.icon);
+            String categoryName=menuString(base+".name",ui("category-name","{category}","category",c.name,"key",c.key));
+            List<String> catLore=menus.contains(base+".lore")?menus.getStringList(base+".lore"):uiLore("category-lore",List.of("<yellow>Click para ver productos"),"category",c.name,"key",c.key);
+            inv.setItem(position,categoryIcon(c.key,displayIcon,categoryName,catLore));
         }
 
         player.openInventory(inv);
@@ -425,7 +444,7 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
         int slot=event.getRawSlot();if(slot<0||slot>=event.getView().getTopInventory().getSize())return;
         switch(h.view) {
             case ROOT -> {
-                if(slot<45){List<Category> cs=new ArrayList<>(categories.values());int pos=displayIndex(slot,View.ROOT);int index=h.page*displaySlots(View.ROOT).length+pos;if(pos>=0&&index<cs.size())openCategory(player,cs.get(index).key,0);}
+                if(slot<45){List<Category> cs=new ArrayList<>(categories.values());int[] positions=displaySlots(View.ROOT);for(int i=0;i<cs.size();i++){int pos=menuInt("shop.categories."+cs.get(i).key+".slot",i<positions.length?positions[i]:-1);if(pos==slot){openCategory(player,cs.get(i).key,0);break;}}}
             }
             case CATEGORY -> {
                 if(slot==slot("category.back-slot",48))openRoot(player,0);
