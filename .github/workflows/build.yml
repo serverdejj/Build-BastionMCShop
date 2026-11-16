@@ -1,0 +1,30 @@
+
+name: Build BastionMCShop
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar proyecto
+        uses: actions/checkout@v4
+
+      - name: Configurar Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Compilar BastionMCShop
+        run: mvn -B clean package
+
+      - name: Guardar JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: BastionMCShop-JAR
+          path: target/*.jar
