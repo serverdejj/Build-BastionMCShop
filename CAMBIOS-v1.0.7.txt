@@ -1,0 +1,7 @@
+BastionMCShop v1.0.7
+- Catálogo de MADERAS de la v1.0.6 conservado.
+- BLOQUES ampliado con familias y variantes vistas en las tres capturas.
+- Precios de compra sugeridos; venta según configuración actual.
+- El menú principal no cambia.
+- Sustituye catalog.yml en plugins/BastionMCShop/ y ejecuta /bastionshop reload.
+- Para código nuevo, compila este proyecto con GitHub Actions.

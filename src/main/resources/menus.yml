@@ -27,7 +27,7 @@ shop:
       - 23
       - 25
       - 31
-      head-slot: -1
+      head-slot: 40
     category:
       border-enabled: true
       border-material: GRAY_STAINED_GLASS_PANE
@@ -122,10 +122,16 @@ shop:
     confirm-info-lore:
     - '<green>Recibir: {total}'
     - <gray>No incluye armadura ni segunda mano
-    head-name: <aqua><bold>MI DINERO
+    head-name: '&f{player} &8▸ &#80FF00&lSALDO'
     head-lore:
-    - '<gray>Jugador: <white>{player}'
-    - '<green>Saldo: <white>{balance}'
+    - '&8⌈ Estadísticas ⌋'
+    - ''
+    - '&7Consulta tu balance actual'
+    - '&7disponible en el servidor'
+    - ''
+    - ' &8▸ &fDinero: &#80FF00{balance}'
+    - ''
+    - '&f$ &8| &#80FF00¡Es hora de comprar objetos!'
   buy-material: LIME_STAINED_GLASS_PANE
   sell-material: RED_STAINED_GLASS_PANE
   back-material: ARROW
