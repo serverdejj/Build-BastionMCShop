@@ -13,8 +13,14 @@ shop:
   product-title: '<yellow>{item}'
   confirmation-title: '<red><bold>CONFIRMAR VENTA'
   filler: GRAY_STAINED_GLASS_PANE
-  categories-per-page: 45
-  products-per-page: 45
+  categories-per-page: 8
+  products-per-page: 8
+  design:
+    border-material: BLACK_STAINED_GLASS_PANE
+    accent-material: CYAN_STAINED_GLASS_PANE
+    head-name: "<aqua><bold>MI SALDO"
+    head-player: "<gray>Jugador: <white>{player}"
+    head-balance: "<green>Dinero: <white>{balance}"
   buy-material: LIME_STAINED_GLASS_PANE
   sell-material: RED_STAINED_GLASS_PANE
   back-material: ARROW

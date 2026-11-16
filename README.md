@@ -34,3 +34,7 @@ Primera version funcional para probar en **Purpur 1.21.11 / Java 21**, con **Vau
 - No soporta por ahora productos con componentes NBT especiales o variaciones complejas.
 - Venta en dos decimales; valores extremadamente bajos pueden redondearse a cero.
 - No se ha compilado ni probado en servidor real desde este entorno. Probar en un servidor de pruebas y respaldar antes de instalar.
+
+
+## v1.0.1 beta - UI
+Menus de 54 espacios con borde y separacion: 8 productos por pagina, cabeza real del jugador en slot 49 con saldo Vault, botones separados de compra/venta, pagina y flechas. Configurar paneles en config.yml bajo shop.design. La version no modifica la logica de transacciones.
