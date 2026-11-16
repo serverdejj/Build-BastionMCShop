@@ -1,0 +1,36 @@
+# BastionMCShop 1.0.0-beta1
+
+Primera version funcional para probar en **Purpur 1.21.11 / Java 21**, con **Vault + proveedor de economia (EssentialsX Economy)**.
+
+## Instalacion
+1. Sube todo el contenido de este ZIP a la raiz de un repositorio de GitHub (incluida la carpeta oculta `.github`).
+2. Ve a Actions y ejecuta **Build BastionMCShop**.
+3. Descarga el artifact `BastionMCShop-JAR`, descomprimelo y coloca el `.jar` en `plugins/`.
+4. Reinicia. Vault y EssentialsX Economy deben estar instalados y funcionando.
+
+## Comandos
+- `/shop`: categorias, paginas, productos, compra y venta por 1/16/32/stack maximo.
+- `/sellall`: abre confirmacion con vista previa.
+- `/sellall fast`: vende sin confirmacion.
+- `/bastionshop reload`: recarga configuraciones.
+
+## Configuracion
+- `plugins/BastionMCShop/config.yml`: porcentaje de venta, textos, menus, permisos de funciones.
+- `plugins/BastionMCShop/catalog.yml`: categorias, productos, precios y blacklist.
+- Precios de catalogo son **ejemplos iniciales**, no un balance final. `sell-percentage: 50`.
+- Cada producto puede declararse como `IRON_INGOT: 9` o:
+  ```yaml
+  IRON_INGOT:
+    buy-price: 9
+    sell-price: 4.5
+  ```
+- Colores MiniMessage (`<gradient:#00C135:#17FF00>`), HEX `&#00C135`, `&l`.
+- La lista negra incluye spawners, cabezas y libros, incluidos libros encantados y escritos.
+- El sistema solo vende objetos de catalogo y evita objetos con nombre, encantamientos, lore, custom model data o PDC en `/sellall` y venta manual.
+
+## Limitaciones de esta beta
+- Catalogo inicial representativo de 8 categorias: **no incluye todavia absolutamente todas las variantes de madera/piedra**. Se pueden agregar desde YAML.
+- No incluye calculo automatico de recetas ni analisis global de arbitraje. Revisa los precios antes de abrir la tienda al publico.
+- No soporta por ahora productos con componentes NBT especiales o variaciones complejas.
+- Venta en dos decimales; valores extremadamente bajos pueden redondearse a cero.
+- No se ha compilado ni probado en servidor real desde este entorno. Probar en un servidor de pruebas y respaldar antes de instalar.

@@ -1,0 +1,39 @@
+economy:
+  sell-percentage: 50.0
+  currency-symbol: '$'
+sellall:
+  enabled: true
+  fast-enabled: true
+  ignore-renamed-items: true
+  ignore-custom-items: true
+  ignore-enchanted-items: true
+shop:
+  title: '<gradient:#00C135:#17FF00><bold>BASTION SHOP</bold></gradient>'
+  category-title: '<gold>TIENDA: {category} <gray>({page}/{pages})'
+  product-title: '<yellow>{item}'
+  confirmation-title: '<red><bold>CONFIRMAR VENTA'
+  filler: GRAY_STAINED_GLASS_PANE
+  categories-per-page: 45
+  products-per-page: 45
+  buy-material: LIME_STAINED_GLASS_PANE
+  sell-material: RED_STAINED_GLASS_PANE
+  back-material: ARROW
+  previous-material: ARROW
+  next-material: ARROW
+  accept-material: LIME_CONCRETE
+  cancel-material: RED_CONCRETE
+  info-material: PAPER
+messages:
+  prefix: '<gradient:#00C135:#17FF00><bold>BASTION SHOP</bold></gradient> <gray>» '
+  no-permission: '<red>No tienes permiso.'
+  no-economy: '<red>Economía no disponible.'
+  no-money: '<red>No tienes dinero suficiente. Necesitas {amount}.'
+  no-items: '<red>No tienes suficientes objetos para vender.'
+  no-space: '<red>No tienes espacio suficiente en el inventario.'
+  bought: '<green>Compraste {quantity}x {item} por {amount}.'
+  sold: '<green>Vendiste {quantity}x {item} por {amount}.'
+  sellall-done: '<green>Vendiste {quantity} objetos por {amount}.'
+  nothing-to-sell: '<yellow>No tienes objetos permitidos para vender.'
+  sale-failed: '<red>No se pudo completar la transacción económica.'
+  reloaded: '<green>Configuración recargada.'
+  invalid-command: '<yellow>Usa /bastionshop reload.'

@@ -1,0 +1,217 @@
+# Categorias y precios iniciales de EJEMPLO. Ajustalos antes de abrir la tienda al publico.
+# El precio de venta es el 50% del precio de compra, salvo sell-price individual.
+# Puedes añadir mas productos con el mismo formato. Las paginas se generan automaticamente.
+# Los objetos prohibidos nunca se muestran ni se venden aunque se añadan aqui.
+blacklist:
+  - SPAWNER
+  - TRIAL_SPAWNER
+  - VAULT
+  - BOOK
+  - WRITABLE_BOOK
+  - WRITTEN_BOOK
+  - ENCHANTED_BOOK
+  - PLAYER_HEAD
+  - ZOMBIE_HEAD
+  - SKELETON_SKULL
+  - WITHER_SKELETON_SKULL
+  - CREEPER_HEAD
+  - DRAGON_HEAD
+  - PIGLIN_HEAD
+categories:
+  minerales:
+    name: '<aqua><bold>MINERALES'
+    icon: DIAMOND
+    items:
+      IRON_NUGGET: 1
+      IRON_INGOT: 9
+      IRON_BLOCK: 81
+      GOLD_NUGGET: 2
+      GOLD_INGOT: 18
+      GOLD_BLOCK: 162
+      COPPER_INGOT: 5
+      COPPER_BLOCK: 45
+      COAL: 6
+      COAL_BLOCK: 54
+      DIAMOND: 150
+      DIAMOND_BLOCK: 1350
+      EMERALD: 120
+      EMERALD_BLOCK: 1080
+      LAPIS_LAZULI: 7
+      LAPIS_BLOCK: 63
+      REDSTONE: 5
+      REDSTONE_BLOCK: 45
+      QUARTZ: 12
+      AMETHYST_SHARD: 10
+      NETHERITE_SCRAP: 650
+  cultivos:
+    name: '<green><bold>GRANJA Y CULTIVOS'
+    icon: WHEAT
+    items:
+      WHEAT: 4
+      WHEAT_SEEDS: 1
+      CARROT: 4
+      POTATO: 4
+      BEETROOT: 4
+      BEETROOT_SEEDS: 1
+      SUGAR_CANE: 3
+      BAMBOO: 1
+      CACTUS: 3
+      PUMPKIN: 12
+      MELON_SLICE: 2
+      MELON: 18
+      COCOA_BEANS: 5
+      NETHER_WART: 8
+      KELP: 2
+      SWEET_BERRIES: 3
+      GLOW_BERRIES: 4
+  redstone:
+    name: '<red><bold>REDSTONE'
+    icon: REDSTONE
+    items:
+      REDSTONE_TORCH: 6
+      REPEATER: 24
+      COMPARATOR: 45
+      PISTON: 50
+      STICKY_PISTON: 80
+      OBSERVER: 70
+      HOPPER: 110
+      DISPENSER: 65
+      DROPPER: 45
+      LEVER: 5
+      STONE_BUTTON: 3
+      REDSTONE_LAMP: 55
+      RAIL: 8
+      POWERED_RAIL: 35
+      DETECTOR_RAIL: 30
+      TARGET: 20
+      DAYLIGHT_DETECTOR: 40
+  mobs:
+    name: '<dark_red><bold>LOOT DE MOBS'
+    icon: BONE
+    items:
+      BONE: 6
+      ROTTEN_FLESH: 2
+      STRING: 5
+      GUNPOWDER: 12
+      SPIDER_EYE: 7
+      ENDER_PEARL: 35
+      BLAZE_ROD: 45
+      GHAST_TEAR: 130
+      SLIME_BALL: 20
+      MAGMA_CREAM: 35
+      PHANTOM_MEMBRANE: 45
+      SHULKER_SHELL: 170
+  decoracion:
+    name: '<light_purple><bold>DECORACIÓN'
+    icon: FLOWER_POT
+    items:
+      FLOWER_POT: 15
+      PAINTING: 20
+      ITEM_FRAME: 18
+      GLOW_ITEM_FRAME: 35
+      LANTERN: 28
+      SOUL_LANTERN: 32
+      WHITE_CARPET: 4
+      RED_CARPET: 5
+      WHITE_STAINED_GLASS: 8
+      BLUE_STAINED_GLASS: 8
+      DANDELION: 4
+      POPPY: 4
+      OXEYE_DAISY: 4
+      TORCHFLOWER: 60
+      CHAIN: 15
+      ARMOR_STAND: 30
+  bloques:
+    name: '<gold><bold>BLOQUES DE CONSTRUCCIÓN'
+    icon: BRICKS
+    items:
+      OAK_LOG: 8
+      OAK_PLANKS: 2
+      OAK_STAIRS: 3
+      OAK_SLAB: 1
+      OAK_FENCE: 5
+      OAK_DOOR: 4
+      SPRUCE_LOG: 8
+      SPRUCE_PLANKS: 2
+      SPRUCE_STAIRS: 3
+      SPRUCE_SLAB: 1
+      BIRCH_LOG: 8
+      BIRCH_PLANKS: 2
+      BIRCH_STAIRS: 3
+      BIRCH_SLAB: 1
+      CHERRY_LOG: 10
+      CHERRY_PLANKS: 2.5
+      CHERRY_STAIRS: 3.75
+      CHERRY_SLAB: 1.25
+      MANGROVE_LOG: 10
+      MANGROVE_PLANKS: 2.5
+      DARK_OAK_LOG: 8
+      DARK_OAK_PLANKS: 2
+      JUNGLE_LOG: 8
+      JUNGLE_PLANKS: 2
+      ACACIA_LOG: 8
+      ACACIA_PLANKS: 2
+      STONE: 3
+      COBBLESTONE: 2
+      STONE_BRICKS: 3
+      STONE_BRICK_STAIRS: 4.5
+      STONE_BRICK_SLAB: 1.5
+      DEEPSLATE: 4
+      COBBLED_DEEPSLATE: 3
+      DEEPSLATE_BRICKS: 4
+      TUFF: 4
+      TUFF_BRICKS: 5
+      ANDESITE: 3
+      DIORITE: 3
+      GRANITE: 3
+      SANDSTONE: 4
+      RED_SANDSTONE: 5
+      BRICKS: 8
+      GLASS: 6
+      OBSIDIAN: 40
+      BASALT: 5
+      BLACKSTONE: 5
+      NETHERRACK: 2
+      END_STONE: 10
+      PRISMARINE: 15
+      QUARTZ_BLOCK: 48
+  animales:
+    name: '<yellow><bold>LOOT DE ANIMALES'
+    icon: LEATHER
+    items:
+      LEATHER: 10
+      FEATHER: 4
+      EGG: 5
+      WHITE_WOOL: 8
+      BLACK_WOOL: 8
+      RABBIT_HIDE: 8
+      RABBIT_FOOT: 30
+      TURTLE_SCUTE: 90
+      INK_SAC: 8
+      GLOW_INK_SAC: 16
+      HONEYCOMB: 12
+      HONEY_BOTTLE: 18
+  comida:
+    name: '<gold><bold>COMIDA'
+    icon: COOKED_BEEF
+    items:
+      BREAD: 12
+      APPLE: 8
+      GOLDEN_APPLE: 140
+      BEEF: 12
+      COOKED_BEEF: 18
+      PORKCHOP: 12
+      COOKED_PORKCHOP: 18
+      CHICKEN: 9
+      COOKED_CHICKEN: 14
+      MUTTON: 10
+      COOKED_MUTTON: 15
+      COD: 9
+      COOKED_COD: 14
+      SALMON: 11
+      COOKED_SALMON: 16
+      BAKED_POTATO: 7
+      GOLDEN_CARROT: 55
+      COOKIE: 4
+      PUMPKIN_PIE: 20
+      CAKE: 60

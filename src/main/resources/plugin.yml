@@ -1,0 +1,23 @@
+name: BastionMCShop
+version: 1.0.0-beta1
+main: mc.bastion.shop.BastionMCShop
+api-version: '1.21'
+depend: [Vault]
+commands:
+  shop:
+    description: Abre la tienda
+  sellall:
+    description: Vende objetos permitidos
+    usage: /sellall [fast]
+  bastionshop:
+    description: Administracion de tienda
+    usage: /bastionshop reload
+permissions:
+  bastionmcshop.use:
+    default: true
+  bastionmcshop.sellall:
+    default: true
+  bastionmcshop.sellall.fast:
+    default: true
+  bastionmcshop.admin:
+    default: op
