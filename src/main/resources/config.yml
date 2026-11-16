@@ -15,12 +15,69 @@ shop:
   filler: GRAY_STAINED_GLASS_PANE
   categories-per-page: 8
   products-per-page: 8
-  design:
-    border-material: BLACK_STAINED_GLASS_PANE
-    accent-material: CYAN_STAINED_GLASS_PANE
-    head-name: "<aqua><bold>MI SALDO"
-    head-player: "<gray>Jugador: <white>{player}"
-    head-balance: "<green>Dinero: <white>{balance}"
+  # Todo el diseño es editable. Los slots van de 0 a 53 (27 slots: 0 a 26).
+  layout:
+    root:
+      border-enabled: true
+      border-material: LIGHT_BLUE_STAINED_GLASS_PANE
+      extra-panels: []
+      slots: [20, 22, 24, 29, 31, 33, 38, 40]
+      previous-slot: 45
+      next-slot: 53
+      page-slot: 47
+      head-slot: 49
+    category:
+      border-enabled: true
+      border-material: LIGHT_BLUE_STAINED_GLASS_PANE
+      extra-panels: []
+      slots: [10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 28, 29, 30, 31, 32, 33, 34, 37, 38, 39, 40, 41, 42, 43]
+      back-slot: 48
+      previous-slot: 45
+      next-slot: 53
+      page-slot: 47
+      head-slot: 49
+    item:
+      border-enabled: true
+      border-material: LIGHT_BLUE_STAINED_GLASS_PANE
+      extra-panels: []
+      preview-slot: 13
+      buy-slots: [20, 22, 24, 26]
+      sell-slots: [29, 31, 33, 35]
+      back-slot: 48
+      head-slot: 49
+    confirm:
+      border-enabled: true
+      border-material: LIGHT_BLUE_STAINED_GLASS_PANE
+      extra-panels: []
+      accept-slot: 11
+      info-slot: 13
+      cancel-slot: 15
+      head-slot: 22
+  texts:
+    root-title: '<gradient:#00C135:#17FF00><bold>BASTION SHOP</bold></gradient>'
+    category-title: '<gray>Tienda: <gradient:#5CF4FF:#7C3FFF>{category}</gradient> <gray>[{page}/{pages}]'
+    item-title: '<yellow>{item}'
+    panel-name: ' '
+    panel-lore: []
+    category-name: '{category}'
+    category-lore: ['<yellow>Click para ver productos']
+    product-name: '<white>{item}'
+    product-lore: ['<green>Comprar: {buy}', '<red>Vender: {sell}', '<yellow>Click para ver opciones']
+    item-preview-name: '<white>{item}'
+    page-name: '<yellow>Página {page}/{pages}'
+    previous-name: '<yellow>Anterior'
+    next-name: '<green>Siguiente'
+    back-name: '<gold>Volver'
+    buy-name: '<green><bold>COMPRAR x{quantity}'
+    buy-lore: ['<gray>Precio: {price}']
+    sell-name: '<red><bold>VENDER x{quantity}'
+    sell-lore: ['<gray>Recibes: {price}']
+    accept-name: '<green><bold>ACEPTAR VENTA'
+    cancel-name: '<red><bold>CANCELAR'
+    confirm-info-name: '<yellow>Vender {quantity} objetos'
+    confirm-info-lore: ['<green>Recibir: {total}', '<gray>No incluye armadura ni segunda mano']
+    head-name: '<aqua><bold>MI SALDO'
+    head-lore: ['<gray>Jugador: <white>{player}', '<green>Dinero: <white>{balance}']
   buy-material: LIME_STAINED_GLASS_PANE
   sell-material: RED_STAINED_GLASS_PANE
   back-material: ARROW

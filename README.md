@@ -38,3 +38,10 @@ Primera version funcional para probar en **Purpur 1.21.11 / Java 21**, con **Vau
 
 ## v1.0.1 beta - UI
 Menus de 54 espacios con borde y separacion: 8 productos por pagina, cabeza real del jugador en slot 49 con saldo Vault, botones separados de compra/venta, pagina y flechas. Configurar paneles en config.yml bajo shop.design. La version no modifica la logica de transacciones.
+
+
+## v1.0.2 - Menus personalizables
+La configuracion de slots, paneles, titulos, nombres y lore esta en `config.yml` bajo `shop.layout` y `shop.texts`.
+Las categorias muestran 8 botones separados, los productos usan hasta 28 espacios por pagina y la cabeza del jugador muestra saldo Vault.
+IMPORTANTE: los YAML existentes NO se sobrescriben automaticamente; copia `shop.layout` y `shop.texts` del ZIP al config del servidor.
+Evita colocar slots de productos, botones y cabeza en el mismo lugar. La pagina se calcula automaticamente.
