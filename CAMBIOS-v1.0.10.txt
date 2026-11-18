@@ -1,0 +1,8 @@
+BASTION MC SHOP v1.0.10
+- Los menus antiguos con posiciones [19,21,23,25] o [20,22,24,26] se centran automaticamente a [20,21,23,24].
+- Las ventas [28,30,32,34] o [29,31,33,35] se centran a [29,30,32,33].
+- La migracion solamente se aplica a estos diseños antiguos conocidos; slots personalizados distintos no cambian.
+- Se actualizaron los valores predeterminados de config.yml.
+- Los cambios de compras y ventas afectan tanto la visualizacion como el click.
+- El menus.yml incluido ya tiene las posiciones nuevas.
+- NO borrar catalog.yml ni carpeta del plugin.

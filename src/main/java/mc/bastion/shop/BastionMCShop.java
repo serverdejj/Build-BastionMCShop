@@ -177,7 +177,21 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
         for(Integer slot:values) if(slot==null||slot<0||slot>=54||!used.add(slot)) {
             getLogger().warning("Slots invalidos en "+path+"; usando valores predeterminados.");return fallback;
         }
-        return values.stream().mapToInt(Integer::intValue).toArray();
+        int[] configured=values.stream().mapToInt(Integer::intValue).toArray();
+        // Legacy layouts used every other column, placing the last button against
+        // the right border. Migrate only the exact known stock layouts so genuinely
+        // customized layouts continue to work unchanged.
+        if(path.equals("shop.layout.item.buy-slots") &&
+                (java.util.Arrays.equals(configured,new int[]{19,21,23,25}) ||
+                 java.util.Arrays.equals(configured,new int[]{20,22,24,26}))) {
+            return new int[]{20,21,23,24};
+        }
+        if(path.equals("shop.layout.item.sell-slots") &&
+                (java.util.Arrays.equals(configured,new int[]{28,30,32,34}) ||
+                 java.util.Arrays.equals(configured,new int[]{29,31,33,35}))) {
+            return new int[]{29,30,32,33};
+        }
+        return configured;
     }
     private int[] displaySlots(View view) {
         return view==View.ROOT ? slots("shop.layout.root.slots",new int[]{12,14,16,20,22,24,30,32})
