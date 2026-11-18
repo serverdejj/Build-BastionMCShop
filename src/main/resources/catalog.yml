@@ -1,3 +1,7 @@
+# BASTION MC - Economia de progresion lenta (objetivo orientativo: $10,000 en 5-10 h)
+# Numeros simples = precio de COMPRA; venta = 20% por defecto.
+# Objetos con buy-price/sell-price usan venta especifica para evitar abuso de granjas.
+# sell-price: 0 desactiva la venta del objeto (pero puede comprarse).
 blacklist:
 - SPAWNER
 - TRIAL_SPAWNER
@@ -18,230 +22,638 @@ categories:
     name: MADERAS
     icon: PLAYER_HEAD
     items:
-      BAMBOO: 1
-      OAK_LOG: 8
-      OAK_PLANKS: 2
-      OAK_STAIRS: 3
-      OAK_SLAB: 1
-      OAK_FENCE: 5
-      OAK_DOOR: 4
-      SPRUCE_LOG: 8
-      SPRUCE_PLANKS: 2
-      SPRUCE_STAIRS: 3
-      SPRUCE_SLAB: 1
-      BIRCH_LOG: 8
-      BIRCH_PLANKS: 2
-      BIRCH_STAIRS: 3
-      BIRCH_SLAB: 1
-      CHERRY_LOG: 10
-      CHERRY_PLANKS: 2.5
-      CHERRY_STAIRS: 3.75
-      CHERRY_SLAB: 1.25
-      MANGROVE_LOG: 10
-      MANGROVE_PLANKS: 2.5
-      DARK_OAK_LOG: 8
-      DARK_OAK_PLANKS: 2
-      JUNGLE_LOG: 8
-      JUNGLE_PLANKS: 2
-      ACACIA_LOG: 8
-      ACACIA_PLANKS: 2
-      STRIPPED_OAK_LOG: 12
-      OAK_WOOD: 12
-      STRIPPED_OAK_WOOD: 12
-      OAK_FENCE_GATE: 12
-      OAK_TRAPDOOR: 9
-      OAK_BUTTON: 3
-      OAK_PRESSURE_PLATE: 6
-      OAK_SIGN: 6
-      OAK_HANGING_SIGN: 12
-      STRIPPED_SPRUCE_LOG: 12
-      SPRUCE_WOOD: 12
-      STRIPPED_SPRUCE_WOOD: 12
-      SPRUCE_FENCE: 5
-      SPRUCE_FENCE_GATE: 12
-      SPRUCE_DOOR: 6
-      SPRUCE_TRAPDOOR: 9
-      SPRUCE_BUTTON: 3
-      SPRUCE_PRESSURE_PLATE: 6
-      SPRUCE_SIGN: 6
-      SPRUCE_HANGING_SIGN: 12
-      STRIPPED_BIRCH_LOG: 12
-      BIRCH_WOOD: 12
-      STRIPPED_BIRCH_WOOD: 12
-      BIRCH_FENCE: 5
-      BIRCH_FENCE_GATE: 12
-      BIRCH_DOOR: 6
-      BIRCH_TRAPDOOR: 9
-      BIRCH_BUTTON: 3
-      BIRCH_PRESSURE_PLATE: 6
-      BIRCH_SIGN: 6
-      BIRCH_HANGING_SIGN: 12
-      STRIPPED_JUNGLE_LOG: 12
-      JUNGLE_WOOD: 12
-      STRIPPED_JUNGLE_WOOD: 12
-      JUNGLE_STAIRS: 4.5
-      JUNGLE_SLAB: 1.5
-      JUNGLE_FENCE: 5
-      JUNGLE_FENCE_GATE: 12
-      JUNGLE_DOOR: 6
-      JUNGLE_TRAPDOOR: 9
-      JUNGLE_BUTTON: 3
-      JUNGLE_PRESSURE_PLATE: 6
-      JUNGLE_SIGN: 6
-      JUNGLE_HANGING_SIGN: 12
-      STRIPPED_ACACIA_LOG: 12
-      ACACIA_WOOD: 12
-      STRIPPED_ACACIA_WOOD: 12
-      ACACIA_STAIRS: 4.5
-      ACACIA_SLAB: 1.5
-      ACACIA_FENCE: 5
-      ACACIA_FENCE_GATE: 12
-      ACACIA_DOOR: 6
-      ACACIA_TRAPDOOR: 9
-      ACACIA_BUTTON: 3
-      ACACIA_PRESSURE_PLATE: 6
-      ACACIA_SIGN: 6
-      ACACIA_HANGING_SIGN: 12
-      STRIPPED_DARK_OAK_LOG: 12
-      DARK_OAK_WOOD: 12
-      STRIPPED_DARK_OAK_WOOD: 12
-      DARK_OAK_STAIRS: 4.5
-      DARK_OAK_SLAB: 1.5
-      DARK_OAK_FENCE: 5
-      DARK_OAK_FENCE_GATE: 12
-      DARK_OAK_DOOR: 6
-      DARK_OAK_TRAPDOOR: 9
-      DARK_OAK_BUTTON: 3
-      DARK_OAK_PRESSURE_PLATE: 6
-      DARK_OAK_SIGN: 6
-      DARK_OAK_HANGING_SIGN: 12
-      STRIPPED_MANGROVE_LOG: 12
-      MANGROVE_WOOD: 12
-      STRIPPED_MANGROVE_WOOD: 12
-      MANGROVE_STAIRS: 4.5
-      MANGROVE_SLAB: 1.5
-      MANGROVE_FENCE: 5
-      MANGROVE_FENCE_GATE: 12
-      MANGROVE_DOOR: 6
-      MANGROVE_TRAPDOOR: 9
-      MANGROVE_BUTTON: 3
-      MANGROVE_PRESSURE_PLATE: 6
-      MANGROVE_SIGN: 6
-      MANGROVE_HANGING_SIGN: 12
-      STRIPPED_CHERRY_LOG: 12
-      CHERRY_WOOD: 12
-      STRIPPED_CHERRY_WOOD: 12
-      CHERRY_FENCE: 5
-      CHERRY_FENCE_GATE: 12
-      CHERRY_DOOR: 6
-      CHERRY_TRAPDOOR: 9
-      CHERRY_BUTTON: 3
-      CHERRY_PRESSURE_PLATE: 6
-      CHERRY_SIGN: 6
-      CHERRY_HANGING_SIGN: 12
-      PALE_OAK_LOG: 12
-      STRIPPED_PALE_OAK_LOG: 12
-      PALE_OAK_WOOD: 12
-      STRIPPED_PALE_OAK_WOOD: 12
-      PALE_OAK_PLANKS: 3
-      PALE_OAK_STAIRS: 4.5
-      PALE_OAK_SLAB: 1.5
-      PALE_OAK_FENCE: 5
-      PALE_OAK_FENCE_GATE: 12
-      PALE_OAK_DOOR: 6
-      PALE_OAK_TRAPDOOR: 9
-      PALE_OAK_BUTTON: 3
-      PALE_OAK_PRESSURE_PLATE: 6
-      PALE_OAK_SIGN: 6
-      PALE_OAK_HANGING_SIGN: 12
-      BAMBOO_BLOCK: 8
-      STRIPPED_BAMBOO_BLOCK: 8
-      BAMBOO_PLANKS: 4
-      BAMBOO_MOSAIC: 4
-      BAMBOO_MOSAIC_STAIRS: 6
-      BAMBOO_MOSAIC_SLAB: 2
-      BAMBOO_STAIRS: 4.5
-      BAMBOO_SLAB: 1.5
-      BAMBOO_FENCE: 5
-      BAMBOO_FENCE_GATE: 12
-      BAMBOO_DOOR: 6
-      BAMBOO_TRAPDOOR: 9
-      BAMBOO_BUTTON: 3
-      BAMBOO_PRESSURE_PLATE: 6
-      BAMBOO_SIGN: 6
-      BAMBOO_HANGING_SIGN: 12
-      CRIMSON_STEM: 12
-      STRIPPED_CRIMSON_STEM: 12
-      CRIMSON_HYPHAE: 12
-      STRIPPED_CRIMSON_HYPHAE: 12
-      CRIMSON_PLANKS: 3
-      CRIMSON_STAIRS: 4.5
-      CRIMSON_SLAB: 1.5
-      CRIMSON_FENCE: 5
-      CRIMSON_FENCE_GATE: 12
-      CRIMSON_DOOR: 6
-      CRIMSON_TRAPDOOR: 9
-      CRIMSON_BUTTON: 3
-      CRIMSON_PRESSURE_PLATE: 6
-      CRIMSON_SIGN: 6
-      CRIMSON_HANGING_SIGN: 12
-      WARPED_STEM: 12
-      STRIPPED_WARPED_STEM: 12
-      WARPED_HYPHAE: 12
-      STRIPPED_WARPED_HYPHAE: 12
-      WARPED_PLANKS: 3
-      WARPED_STAIRS: 4.5
-      WARPED_SLAB: 1.5
-      WARPED_FENCE: 5
-      WARPED_FENCE_GATE: 12
-      WARPED_DOOR: 6
-      WARPED_TRAPDOOR: 9
-      WARPED_BUTTON: 3
-      WARPED_PRESSURE_PLATE: 6
-      WARPED_SIGN: 6
-      WARPED_HANGING_SIGN: 12
+      BAMBOO:
+        buy-price: 1
+        sell-price: 0.05
+      OAK_LOG:
+        buy-price: 8
+        sell-price: 0.6
+      OAK_PLANKS:
+        buy-price: 2
+        sell-price: 0.1
+      OAK_STAIRS:
+        buy-price: 3
+        sell-price: 0.08
+      OAK_SLAB:
+        buy-price: 1
+        sell-price: 0.04
+      OAK_FENCE:
+        buy-price: 5
+        sell-price: 0.1
+      OAK_DOOR:
+        buy-price: 4
+        sell-price: 0.1
+      SPRUCE_LOG:
+        buy-price: 8
+        sell-price: 0.6
+      SPRUCE_PLANKS:
+        buy-price: 2
+        sell-price: 0.1
+      SPRUCE_STAIRS:
+        buy-price: 3
+        sell-price: 0.08
+      SPRUCE_SLAB:
+        buy-price: 1
+        sell-price: 0.04
+      BIRCH_LOG:
+        buy-price: 8
+        sell-price: 0.6
+      BIRCH_PLANKS:
+        buy-price: 2
+        sell-price: 0.1
+      BIRCH_STAIRS:
+        buy-price: 3
+        sell-price: 0.08
+      BIRCH_SLAB:
+        buy-price: 1
+        sell-price: 0.04
+      CHERRY_LOG:
+        buy-price: 10
+        sell-price: 0.65
+      CHERRY_PLANKS:
+        buy-price: 2.5
+        sell-price: 0.1
+      CHERRY_STAIRS:
+        buy-price: 3.75
+        sell-price: 0.08
+      CHERRY_SLAB:
+        buy-price: 1.25
+        sell-price: 0.04
+      MANGROVE_LOG:
+        buy-price: 10
+        sell-price: 0.65
+      MANGROVE_PLANKS:
+        buy-price: 2.5
+        sell-price: 0.1
+      DARK_OAK_LOG:
+        buy-price: 8
+        sell-price: 0.6
+      DARK_OAK_PLANKS:
+        buy-price: 2
+        sell-price: 0.1
+      JUNGLE_LOG:
+        buy-price: 8
+        sell-price: 0.6
+      JUNGLE_PLANKS:
+        buy-price: 2
+        sell-price: 0.1
+      ACACIA_LOG:
+        buy-price: 8
+        sell-price: 0.6
+      ACACIA_PLANKS:
+        buy-price: 2
+        sell-price: 0.1
+      STRIPPED_OAK_LOG:
+        buy-price: 12
+        sell-price: 0.45
+      OAK_WOOD:
+        buy-price: 12
+        sell-price: 0.45
+      STRIPPED_OAK_WOOD:
+        buy-price: 12
+        sell-price: 0.45
+      OAK_FENCE_GATE:
+        buy-price: 12
+        sell-price: 0.1
+      OAK_TRAPDOOR:
+        buy-price: 9
+        sell-price: 0.1
+      OAK_BUTTON:
+        buy-price: 3
+        sell-price: 0.1
+      OAK_PRESSURE_PLATE:
+        buy-price: 6
+        sell-price: 0.1
+      OAK_SIGN:
+        buy-price: 6
+        sell-price: 0.1
+      OAK_HANGING_SIGN:
+        buy-price: 12
+        sell-price: 0.1
+      STRIPPED_SPRUCE_LOG:
+        buy-price: 12
+        sell-price: 0.45
+      SPRUCE_WOOD:
+        buy-price: 12
+        sell-price: 0.45
+      STRIPPED_SPRUCE_WOOD:
+        buy-price: 12
+        sell-price: 0.45
+      SPRUCE_FENCE:
+        buy-price: 5
+        sell-price: 0.1
+      SPRUCE_FENCE_GATE:
+        buy-price: 12
+        sell-price: 0.1
+      SPRUCE_DOOR:
+        buy-price: 6
+        sell-price: 0.1
+      SPRUCE_TRAPDOOR:
+        buy-price: 9
+        sell-price: 0.1
+      SPRUCE_BUTTON:
+        buy-price: 3
+        sell-price: 0.1
+      SPRUCE_PRESSURE_PLATE:
+        buy-price: 6
+        sell-price: 0.1
+      SPRUCE_SIGN:
+        buy-price: 6
+        sell-price: 0.1
+      SPRUCE_HANGING_SIGN:
+        buy-price: 12
+        sell-price: 0.1
+      STRIPPED_BIRCH_LOG:
+        buy-price: 12
+        sell-price: 0.45
+      BIRCH_WOOD:
+        buy-price: 12
+        sell-price: 0.45
+      STRIPPED_BIRCH_WOOD:
+        buy-price: 12
+        sell-price: 0.45
+      BIRCH_FENCE:
+        buy-price: 5
+        sell-price: 0.1
+      BIRCH_FENCE_GATE:
+        buy-price: 12
+        sell-price: 0.1
+      BIRCH_DOOR:
+        buy-price: 6
+        sell-price: 0.1
+      BIRCH_TRAPDOOR:
+        buy-price: 9
+        sell-price: 0.1
+      BIRCH_BUTTON:
+        buy-price: 3
+        sell-price: 0.1
+      BIRCH_PRESSURE_PLATE:
+        buy-price: 6
+        sell-price: 0.1
+      BIRCH_SIGN:
+        buy-price: 6
+        sell-price: 0.1
+      BIRCH_HANGING_SIGN:
+        buy-price: 12
+        sell-price: 0.1
+      STRIPPED_JUNGLE_LOG:
+        buy-price: 12
+        sell-price: 0.45
+      JUNGLE_WOOD:
+        buy-price: 12
+        sell-price: 0.45
+      STRIPPED_JUNGLE_WOOD:
+        buy-price: 12
+        sell-price: 0.45
+      JUNGLE_STAIRS:
+        buy-price: 4.5
+        sell-price: 0.08
+      JUNGLE_SLAB:
+        buy-price: 1.5
+        sell-price: 0.04
+      JUNGLE_FENCE:
+        buy-price: 5
+        sell-price: 0.1
+      JUNGLE_FENCE_GATE:
+        buy-price: 12
+        sell-price: 0.1
+      JUNGLE_DOOR:
+        buy-price: 6
+        sell-price: 0.1
+      JUNGLE_TRAPDOOR:
+        buy-price: 9
+        sell-price: 0.1
+      JUNGLE_BUTTON:
+        buy-price: 3
+        sell-price: 0.1
+      JUNGLE_PRESSURE_PLATE:
+        buy-price: 6
+        sell-price: 0.1
+      JUNGLE_SIGN:
+        buy-price: 6
+        sell-price: 0.1
+      JUNGLE_HANGING_SIGN:
+        buy-price: 12
+        sell-price: 0.1
+      STRIPPED_ACACIA_LOG:
+        buy-price: 12
+        sell-price: 0.45
+      ACACIA_WOOD:
+        buy-price: 12
+        sell-price: 0.45
+      STRIPPED_ACACIA_WOOD:
+        buy-price: 12
+        sell-price: 0.45
+      ACACIA_STAIRS:
+        buy-price: 4.5
+        sell-price: 0.08
+      ACACIA_SLAB:
+        buy-price: 1.5
+        sell-price: 0.04
+      ACACIA_FENCE:
+        buy-price: 5
+        sell-price: 0.1
+      ACACIA_FENCE_GATE:
+        buy-price: 12
+        sell-price: 0.1
+      ACACIA_DOOR:
+        buy-price: 6
+        sell-price: 0.1
+      ACACIA_TRAPDOOR:
+        buy-price: 9
+        sell-price: 0.1
+      ACACIA_BUTTON:
+        buy-price: 3
+        sell-price: 0.1
+      ACACIA_PRESSURE_PLATE:
+        buy-price: 6
+        sell-price: 0.1
+      ACACIA_SIGN:
+        buy-price: 6
+        sell-price: 0.1
+      ACACIA_HANGING_SIGN:
+        buy-price: 12
+        sell-price: 0.1
+      STRIPPED_DARK_OAK_LOG:
+        buy-price: 12
+        sell-price: 0.45
+      DARK_OAK_WOOD:
+        buy-price: 12
+        sell-price: 0.45
+      STRIPPED_DARK_OAK_WOOD:
+        buy-price: 12
+        sell-price: 0.45
+      DARK_OAK_STAIRS:
+        buy-price: 4.5
+        sell-price: 0.08
+      DARK_OAK_SLAB:
+        buy-price: 1.5
+        sell-price: 0.04
+      DARK_OAK_FENCE:
+        buy-price: 5
+        sell-price: 0.1
+      DARK_OAK_FENCE_GATE:
+        buy-price: 12
+        sell-price: 0.1
+      DARK_OAK_DOOR:
+        buy-price: 6
+        sell-price: 0.1
+      DARK_OAK_TRAPDOOR:
+        buy-price: 9
+        sell-price: 0.1
+      DARK_OAK_BUTTON:
+        buy-price: 3
+        sell-price: 0.1
+      DARK_OAK_PRESSURE_PLATE:
+        buy-price: 6
+        sell-price: 0.1
+      DARK_OAK_SIGN:
+        buy-price: 6
+        sell-price: 0.1
+      DARK_OAK_HANGING_SIGN:
+        buy-price: 12
+        sell-price: 0.1
+      STRIPPED_MANGROVE_LOG:
+        buy-price: 12
+        sell-price: 0.45
+      MANGROVE_WOOD:
+        buy-price: 12
+        sell-price: 0.45
+      STRIPPED_MANGROVE_WOOD:
+        buy-price: 12
+        sell-price: 0.45
+      MANGROVE_STAIRS:
+        buy-price: 4.5
+        sell-price: 0.08
+      MANGROVE_SLAB:
+        buy-price: 1.5
+        sell-price: 0.04
+      MANGROVE_FENCE:
+        buy-price: 5
+        sell-price: 0.1
+      MANGROVE_FENCE_GATE:
+        buy-price: 12
+        sell-price: 0.1
+      MANGROVE_DOOR:
+        buy-price: 6
+        sell-price: 0.1
+      MANGROVE_TRAPDOOR:
+        buy-price: 9
+        sell-price: 0.1
+      MANGROVE_BUTTON:
+        buy-price: 3
+        sell-price: 0.1
+      MANGROVE_PRESSURE_PLATE:
+        buy-price: 6
+        sell-price: 0.1
+      MANGROVE_SIGN:
+        buy-price: 6
+        sell-price: 0.1
+      MANGROVE_HANGING_SIGN:
+        buy-price: 12
+        sell-price: 0.1
+      STRIPPED_CHERRY_LOG:
+        buy-price: 12
+        sell-price: 0.45
+      CHERRY_WOOD:
+        buy-price: 12
+        sell-price: 0.45
+      STRIPPED_CHERRY_WOOD:
+        buy-price: 12
+        sell-price: 0.45
+      CHERRY_FENCE:
+        buy-price: 5
+        sell-price: 0.1
+      CHERRY_FENCE_GATE:
+        buy-price: 12
+        sell-price: 0.1
+      CHERRY_DOOR:
+        buy-price: 6
+        sell-price: 0.1
+      CHERRY_TRAPDOOR:
+        buy-price: 9
+        sell-price: 0.1
+      CHERRY_BUTTON:
+        buy-price: 3
+        sell-price: 0.1
+      CHERRY_PRESSURE_PLATE:
+        buy-price: 6
+        sell-price: 0.1
+      CHERRY_SIGN:
+        buy-price: 6
+        sell-price: 0.1
+      CHERRY_HANGING_SIGN:
+        buy-price: 12
+        sell-price: 0.1
+      PALE_OAK_LOG:
+        buy-price: 12
+        sell-price: 0.65
+      STRIPPED_PALE_OAK_LOG:
+        buy-price: 12
+        sell-price: 0.45
+      PALE_OAK_WOOD:
+        buy-price: 12
+        sell-price: 0.45
+      STRIPPED_PALE_OAK_WOOD:
+        buy-price: 12
+        sell-price: 0.45
+      PALE_OAK_PLANKS:
+        buy-price: 3
+        sell-price: 0.1
+      PALE_OAK_STAIRS:
+        buy-price: 4.5
+        sell-price: 0.08
+      PALE_OAK_SLAB:
+        buy-price: 1.5
+        sell-price: 0.04
+      PALE_OAK_FENCE:
+        buy-price: 5
+        sell-price: 0.1
+      PALE_OAK_FENCE_GATE:
+        buy-price: 12
+        sell-price: 0.1
+      PALE_OAK_DOOR:
+        buy-price: 6
+        sell-price: 0.1
+      PALE_OAK_TRAPDOOR:
+        buy-price: 9
+        sell-price: 0.1
+      PALE_OAK_BUTTON:
+        buy-price: 3
+        sell-price: 0.1
+      PALE_OAK_PRESSURE_PLATE:
+        buy-price: 6
+        sell-price: 0.1
+      PALE_OAK_SIGN:
+        buy-price: 6
+        sell-price: 0.1
+      PALE_OAK_HANGING_SIGN:
+        buy-price: 12
+        sell-price: 0.1
+      BAMBOO_BLOCK:
+        buy-price: 8
+        sell-price: 0.3
+      STRIPPED_BAMBOO_BLOCK:
+        buy-price: 8
+        sell-price: 0.45
+      BAMBOO_PLANKS:
+        buy-price: 4
+        sell-price: 0.1
+      BAMBOO_MOSAIC:
+        buy-price: 4
+        sell-price: 0.1
+      BAMBOO_MOSAIC_STAIRS:
+        buy-price: 6
+        sell-price: 0.08
+      BAMBOO_MOSAIC_SLAB:
+        buy-price: 2
+        sell-price: 0.04
+      BAMBOO_STAIRS:
+        buy-price: 4.5
+        sell-price: 0.08
+      BAMBOO_SLAB:
+        buy-price: 1.5
+        sell-price: 0.04
+      BAMBOO_FENCE:
+        buy-price: 5
+        sell-price: 0.1
+      BAMBOO_FENCE_GATE:
+        buy-price: 12
+        sell-price: 0.1
+      BAMBOO_DOOR:
+        buy-price: 6
+        sell-price: 0.1
+      BAMBOO_TRAPDOOR:
+        buy-price: 9
+        sell-price: 0.1
+      BAMBOO_BUTTON:
+        buy-price: 3
+        sell-price: 0.1
+      BAMBOO_PRESSURE_PLATE:
+        buy-price: 6
+        sell-price: 0.1
+      BAMBOO_SIGN:
+        buy-price: 6
+        sell-price: 0.1
+      BAMBOO_HANGING_SIGN:
+        buy-price: 12
+        sell-price: 0.1
+      CRIMSON_STEM:
+        buy-price: 12
+        sell-price: 0.65
+      STRIPPED_CRIMSON_STEM:
+        buy-price: 12
+        sell-price: 0.45
+      CRIMSON_HYPHAE:
+        buy-price: 12
+        sell-price: 0.45
+      STRIPPED_CRIMSON_HYPHAE:
+        buy-price: 12
+        sell-price: 0.45
+      CRIMSON_PLANKS:
+        buy-price: 3
+        sell-price: 0.1
+      CRIMSON_STAIRS:
+        buy-price: 4.5
+        sell-price: 0.08
+      CRIMSON_SLAB:
+        buy-price: 1.5
+        sell-price: 0.04
+      CRIMSON_FENCE:
+        buy-price: 5
+        sell-price: 0.1
+      CRIMSON_FENCE_GATE:
+        buy-price: 12
+        sell-price: 0.1
+      CRIMSON_DOOR:
+        buy-price: 6
+        sell-price: 0.1
+      CRIMSON_TRAPDOOR:
+        buy-price: 9
+        sell-price: 0.1
+      CRIMSON_BUTTON:
+        buy-price: 3
+        sell-price: 0.1
+      CRIMSON_PRESSURE_PLATE:
+        buy-price: 6
+        sell-price: 0.1
+      CRIMSON_SIGN:
+        buy-price: 6
+        sell-price: 0.1
+      CRIMSON_HANGING_SIGN:
+        buy-price: 12
+        sell-price: 0.1
+      WARPED_STEM:
+        buy-price: 12
+        sell-price: 0.65
+      STRIPPED_WARPED_STEM:
+        buy-price: 12
+        sell-price: 0.45
+      WARPED_HYPHAE:
+        buy-price: 12
+        sell-price: 0.45
+      STRIPPED_WARPED_HYPHAE:
+        buy-price: 12
+        sell-price: 0.45
+      WARPED_PLANKS:
+        buy-price: 3
+        sell-price: 0.1
+      WARPED_STAIRS:
+        buy-price: 4.5
+        sell-price: 0.08
+      WARPED_SLAB:
+        buy-price: 1.5
+        sell-price: 0.04
+      WARPED_FENCE:
+        buy-price: 5
+        sell-price: 0.1
+      WARPED_FENCE_GATE:
+        buy-price: 12
+        sell-price: 0.1
+      WARPED_DOOR:
+        buy-price: 6
+        sell-price: 0.1
+      WARPED_TRAPDOOR:
+        buy-price: 9
+        sell-price: 0.1
+      WARPED_BUTTON:
+        buy-price: 3
+        sell-price: 0.1
+      WARPED_PRESSURE_PLATE:
+        buy-price: 6
+        sell-price: 0.1
+      WARPED_SIGN:
+        buy-price: 6
+        sell-price: 0.1
+      WARPED_HANGING_SIGN:
+        buy-price: 12
+        sell-price: 0.1
       OAK_BOAT: 12
       OAK_CHEST_BOAT: 18
-      OAK_LEAVES: 2
-      OAK_SAPLING: 12
+      OAK_LEAVES:
+        buy-price: 2
+        sell-price: 0.06
+      OAK_SAPLING:
+        buy-price: 12
+        sell-price: 0.06
       SPRUCE_BOAT: 12
       SPRUCE_CHEST_BOAT: 18
-      SPRUCE_LEAVES: 2
-      SPRUCE_SAPLING: 12
+      SPRUCE_LEAVES:
+        buy-price: 2
+        sell-price: 0.06
+      SPRUCE_SAPLING:
+        buy-price: 12
+        sell-price: 0.06
       BIRCH_BOAT: 12
       BIRCH_CHEST_BOAT: 18
-      BIRCH_LEAVES: 2
-      BIRCH_SAPLING: 12
+      BIRCH_LEAVES:
+        buy-price: 2
+        sell-price: 0.06
+      BIRCH_SAPLING:
+        buy-price: 12
+        sell-price: 0.06
       JUNGLE_BOAT: 12
       JUNGLE_CHEST_BOAT: 18
-      JUNGLE_LEAVES: 2
-      JUNGLE_SAPLING: 12
+      JUNGLE_LEAVES:
+        buy-price: 2
+        sell-price: 0.06
+      JUNGLE_SAPLING:
+        buy-price: 12
+        sell-price: 0.06
       ACACIA_BOAT: 12
       ACACIA_CHEST_BOAT: 18
-      ACACIA_LEAVES: 2
-      ACACIA_SAPLING: 12
+      ACACIA_LEAVES:
+        buy-price: 2
+        sell-price: 0.06
+      ACACIA_SAPLING:
+        buy-price: 12
+        sell-price: 0.06
       DARK_OAK_BOAT: 12
       DARK_OAK_CHEST_BOAT: 18
-      DARK_OAK_LEAVES: 2
-      DARK_OAK_SAPLING: 12
+      DARK_OAK_LEAVES:
+        buy-price: 2
+        sell-price: 0.06
+      DARK_OAK_SAPLING:
+        buy-price: 12
+        sell-price: 0.06
       MANGROVE_BOAT: 12
       MANGROVE_CHEST_BOAT: 18
-      MANGROVE_LEAVES: 2
+      MANGROVE_LEAVES:
+        buy-price: 2
+        sell-price: 0.06
       CHERRY_BOAT: 12
       CHERRY_CHEST_BOAT: 18
-      CHERRY_LEAVES: 2
-      CHERRY_SAPLING: 12
+      CHERRY_LEAVES:
+        buy-price: 2
+        sell-price: 0.06
+      CHERRY_SAPLING:
+        buy-price: 12
+        sell-price: 0.06
       PALE_OAK_BOAT: 12
       PALE_OAK_CHEST_BOAT: 18
-      PALE_OAK_LEAVES: 2
-      PALE_OAK_SAPLING: 12
-      MANGROVE_PROPAGULE: 12
+      PALE_OAK_LEAVES:
+        buy-price: 2
+        sell-price: 0.06
+      PALE_OAK_SAPLING:
+        buy-price: 12
+        sell-price: 0.06
+      MANGROVE_PROPAGULE:
+        buy-price: 12
+        sell-price: 0.06
       BAMBOO_RAFT: 12
       BAMBOO_CHEST_RAFT: 18
-      CRIMSON_FUNGUS: 15
-      WARPED_FUNGUS: 15
-      CRIMSON_ROOTS: 5
-      WARPED_ROOTS: 5
+      CRIMSON_FUNGUS:
+        buy-price: 15
+        sell-price: 0.15
+      WARPED_FUNGUS:
+        buy-price: 15
+        sell-price: 0.15
+      CRIMSON_ROOTS:
+        buy-price: 5
+        sell-price: 0.15
+      WARPED_ROOTS:
+        buy-price: 5
+        sell-price: 0.15
       MANGROVE_ROOTS: 6
       MUDDY_MANGROVE_ROOTS: 8
       PALE_HANGING_MOSS: 5
@@ -249,27 +661,49 @@ categories:
     name: BLOQUES
     icon: GRASS_BLOCK
     items:
-      STONE: 3
-      COBBLESTONE: 2
+      STONE:
+        buy-price: 3
+        sell-price: 0.15
+      COBBLESTONE:
+        buy-price: 2
+        sell-price: 0.1
       STONE_BRICKS: 3
       STONE_BRICK_STAIRS: 4.5
       STONE_BRICK_SLAB: 1.5
-      DEEPSLATE: 4
-      COBBLED_DEEPSLATE: 3
+      DEEPSLATE:
+        buy-price: 4
+        sell-price: 0.2
+      COBBLED_DEEPSLATE:
+        buy-price: 3
+        sell-price: 0.15
       DEEPSLATE_BRICKS: 4
-      TUFF: 4
+      TUFF:
+        buy-price: 4
+        sell-price: 0.15
       TUFF_BRICKS: 5
-      ANDESITE: 3
-      DIORITE: 3
-      GRANITE: 3
+      ANDESITE:
+        buy-price: 3
+        sell-price: 0.15
+      DIORITE:
+        buy-price: 3
+        sell-price: 0.15
+      GRANITE:
+        buy-price: 3
+        sell-price: 0.15
       SANDSTONE: 4
       RED_SANDSTONE: 5
       BRICKS: 8
       GLASS: 6
       OBSIDIAN: 40
-      BASALT: 5
-      BLACKSTONE: 5
-      NETHERRACK: 2
+      BASALT:
+        buy-price: 5
+        sell-price: 0.1
+      BLACKSTONE:
+        buy-price: 5
+        sell-price: 0.1
+      NETHERRACK:
+        buy-price: 2
+        sell-price: 0.06
       END_STONE: 10
       PRISMARINE: 15
       QUARTZ_BLOCK: 48
@@ -304,116 +738,180 @@ categories:
       PRISMARINE_BRICK_STAIRS: 18.0
       PRISMARINE_BRICK_SLAB: 6.0
       PRISMARINE_BRICK_WALL: 12
-      WHITE_WOOL: 8
+      WHITE_WOOL:
+        buy-price: 8
+        sell-price: 0.2
       WHITE_TERRACOTTA: 9
       WHITE_GLAZED_TERRACOTTA: 14
       WHITE_CONCRETE: 10
-      WHITE_CONCRETE_POWDER: 7
+      WHITE_CONCRETE_POWDER:
+        buy-price: 7
+        sell-price: 0.2
       WHITE_STAINED_GLASS: 10
       WHITE_STAINED_GLASS_PANE: 4
-      ORANGE_WOOL: 8
+      ORANGE_WOOL:
+        buy-price: 8
+        sell-price: 0.2
       ORANGE_TERRACOTTA: 9
       ORANGE_GLAZED_TERRACOTTA: 14
       ORANGE_CONCRETE: 10
-      ORANGE_CONCRETE_POWDER: 7
+      ORANGE_CONCRETE_POWDER:
+        buy-price: 7
+        sell-price: 0.2
       ORANGE_STAINED_GLASS: 10
       ORANGE_STAINED_GLASS_PANE: 4
-      MAGENTA_WOOL: 8
+      MAGENTA_WOOL:
+        buy-price: 8
+        sell-price: 0.2
       MAGENTA_TERRACOTTA: 9
       MAGENTA_GLAZED_TERRACOTTA: 14
       MAGENTA_CONCRETE: 10
-      MAGENTA_CONCRETE_POWDER: 7
+      MAGENTA_CONCRETE_POWDER:
+        buy-price: 7
+        sell-price: 0.2
       MAGENTA_STAINED_GLASS: 10
       MAGENTA_STAINED_GLASS_PANE: 4
-      LIGHT_BLUE_WOOL: 8
+      LIGHT_BLUE_WOOL:
+        buy-price: 8
+        sell-price: 0.2
       LIGHT_BLUE_TERRACOTTA: 9
       LIGHT_BLUE_GLAZED_TERRACOTTA: 14
       LIGHT_BLUE_CONCRETE: 10
-      LIGHT_BLUE_CONCRETE_POWDER: 7
+      LIGHT_BLUE_CONCRETE_POWDER:
+        buy-price: 7
+        sell-price: 0.2
       LIGHT_BLUE_STAINED_GLASS: 10
       LIGHT_BLUE_STAINED_GLASS_PANE: 4
-      YELLOW_WOOL: 8
+      YELLOW_WOOL:
+        buy-price: 8
+        sell-price: 0.2
       YELLOW_TERRACOTTA: 9
       YELLOW_GLAZED_TERRACOTTA: 14
       YELLOW_CONCRETE: 10
-      YELLOW_CONCRETE_POWDER: 7
+      YELLOW_CONCRETE_POWDER:
+        buy-price: 7
+        sell-price: 0.2
       YELLOW_STAINED_GLASS: 10
       YELLOW_STAINED_GLASS_PANE: 4
-      LIME_WOOL: 8
+      LIME_WOOL:
+        buy-price: 8
+        sell-price: 0.2
       LIME_TERRACOTTA: 9
       LIME_GLAZED_TERRACOTTA: 14
       LIME_CONCRETE: 10
-      LIME_CONCRETE_POWDER: 7
+      LIME_CONCRETE_POWDER:
+        buy-price: 7
+        sell-price: 0.2
       LIME_STAINED_GLASS: 10
       LIME_STAINED_GLASS_PANE: 4
-      PINK_WOOL: 8
+      PINK_WOOL:
+        buy-price: 8
+        sell-price: 0.2
       PINK_TERRACOTTA: 9
       PINK_GLAZED_TERRACOTTA: 14
       PINK_CONCRETE: 10
-      PINK_CONCRETE_POWDER: 7
+      PINK_CONCRETE_POWDER:
+        buy-price: 7
+        sell-price: 0.2
       PINK_STAINED_GLASS: 10
       PINK_STAINED_GLASS_PANE: 4
-      GRAY_WOOL: 8
+      GRAY_WOOL:
+        buy-price: 8
+        sell-price: 0.2
       GRAY_TERRACOTTA: 9
       GRAY_GLAZED_TERRACOTTA: 14
       GRAY_CONCRETE: 10
-      GRAY_CONCRETE_POWDER: 7
+      GRAY_CONCRETE_POWDER:
+        buy-price: 7
+        sell-price: 0.2
       GRAY_STAINED_GLASS: 10
       GRAY_STAINED_GLASS_PANE: 4
-      LIGHT_GRAY_WOOL: 8
+      LIGHT_GRAY_WOOL:
+        buy-price: 8
+        sell-price: 0.2
       LIGHT_GRAY_TERRACOTTA: 9
       LIGHT_GRAY_GLAZED_TERRACOTTA: 14
       LIGHT_GRAY_CONCRETE: 10
-      LIGHT_GRAY_CONCRETE_POWDER: 7
+      LIGHT_GRAY_CONCRETE_POWDER:
+        buy-price: 7
+        sell-price: 0.2
       LIGHT_GRAY_STAINED_GLASS: 10
       LIGHT_GRAY_STAINED_GLASS_PANE: 4
-      CYAN_WOOL: 8
+      CYAN_WOOL:
+        buy-price: 8
+        sell-price: 0.2
       CYAN_TERRACOTTA: 9
       CYAN_GLAZED_TERRACOTTA: 14
       CYAN_CONCRETE: 10
-      CYAN_CONCRETE_POWDER: 7
+      CYAN_CONCRETE_POWDER:
+        buy-price: 7
+        sell-price: 0.2
       CYAN_STAINED_GLASS: 10
       CYAN_STAINED_GLASS_PANE: 4
-      PURPLE_WOOL: 8
+      PURPLE_WOOL:
+        buy-price: 8
+        sell-price: 0.2
       PURPLE_TERRACOTTA: 9
       PURPLE_GLAZED_TERRACOTTA: 14
       PURPLE_CONCRETE: 10
-      PURPLE_CONCRETE_POWDER: 7
+      PURPLE_CONCRETE_POWDER:
+        buy-price: 7
+        sell-price: 0.2
       PURPLE_STAINED_GLASS: 10
       PURPLE_STAINED_GLASS_PANE: 4
-      BLUE_WOOL: 8
+      BLUE_WOOL:
+        buy-price: 8
+        sell-price: 0.2
       BLUE_TERRACOTTA: 9
       BLUE_GLAZED_TERRACOTTA: 14
       BLUE_CONCRETE: 10
-      BLUE_CONCRETE_POWDER: 7
+      BLUE_CONCRETE_POWDER:
+        buy-price: 7
+        sell-price: 0.2
       BLUE_STAINED_GLASS: 10
       BLUE_STAINED_GLASS_PANE: 4
-      BROWN_WOOL: 8
+      BROWN_WOOL:
+        buy-price: 8
+        sell-price: 0.2
       BROWN_TERRACOTTA: 9
       BROWN_GLAZED_TERRACOTTA: 14
       BROWN_CONCRETE: 10
-      BROWN_CONCRETE_POWDER: 7
+      BROWN_CONCRETE_POWDER:
+        buy-price: 7
+        sell-price: 0.2
       BROWN_STAINED_GLASS: 10
       BROWN_STAINED_GLASS_PANE: 4
-      GREEN_WOOL: 8
+      GREEN_WOOL:
+        buy-price: 8
+        sell-price: 0.2
       GREEN_TERRACOTTA: 9
       GREEN_GLAZED_TERRACOTTA: 14
       GREEN_CONCRETE: 10
-      GREEN_CONCRETE_POWDER: 7
+      GREEN_CONCRETE_POWDER:
+        buy-price: 7
+        sell-price: 0.2
       GREEN_STAINED_GLASS: 10
       GREEN_STAINED_GLASS_PANE: 4
-      RED_WOOL: 8
+      RED_WOOL:
+        buy-price: 8
+        sell-price: 0.2
       RED_TERRACOTTA: 9
       RED_GLAZED_TERRACOTTA: 14
       RED_CONCRETE: 10
-      RED_CONCRETE_POWDER: 7
+      RED_CONCRETE_POWDER:
+        buy-price: 7
+        sell-price: 0.2
       RED_STAINED_GLASS: 10
       RED_STAINED_GLASS_PANE: 4
-      BLACK_WOOL: 8
+      BLACK_WOOL:
+        buy-price: 8
+        sell-price: 0.2
       BLACK_TERRACOTTA: 9
       BLACK_GLAZED_TERRACOTTA: 14
       BLACK_CONCRETE: 10
-      BLACK_CONCRETE_POWDER: 7
+      BLACK_CONCRETE_POWDER:
+        buy-price: 7
+        sell-price: 0.2
       BLACK_STAINED_GLASS: 10
       BLACK_STAINED_GLASS_PANE: 4
       POLISHED_DEEPSLATE: 4
@@ -445,8 +943,12 @@ categories:
       GLOWSTONE: 28
       SEA_LANTERN: 45
       SHROOMLIGHT: 30
-      MOSS_BLOCK: 6
-      MOSS_CARPET: 3
+      MOSS_BLOCK:
+        buy-price: 6
+        sell-price: 0.15
+      MOSS_CARPET:
+        buy-price: 3
+        sell-price: 0.08
       AZALEA_LEAVES: 5
       FLOWERING_AZALEA_LEAVES: 6
       STONE_STAIRS: 4.5
@@ -496,10 +998,16 @@ categories:
       TUFF_WALL: 4
       CHISELED_TUFF: 6
       CHISELED_TUFF_BRICKS: 7
-      SAND: 2
+      SAND:
+        buy-price: 2
+        sell-price: 0.15
       RED_SAND: 3
-      GRAVEL: 2
-      DIRT: 1
+      GRAVEL:
+        buy-price: 2
+        sell-price: 0.15
+      DIRT:
+        buy-price: 1
+        sell-price: 0.05
       COARSE_DIRT: 3
       ROOTED_DIRT: 4
       GRASS_BLOCK: 4
@@ -563,12 +1071,22 @@ categories:
       WET_SPONGE: 40
       GLASS_PANE: 3
       TINTED_GLASS: 14
-      SLIME_BLOCK: 35
-      HONEY_BLOCK: 40
+      SLIME_BLOCK:
+        buy-price: 35
+        sell-price: 3.15
+      HONEY_BLOCK:
+        buy-price: 40
+        sell-price: 0.9
       CHISELED_QUARTZ_BLOCK: 48
-      BONE_BLOCK: 14
-      HAY_BLOCK: 12
-      DRIED_KELP_BLOCK: 10
+      BONE_BLOCK:
+        buy-price: 14
+        sell-price: 1.6
+      HAY_BLOCK:
+        buy-price: 12
+        sell-price: 0.9
+      DRIED_KELP_BLOCK:
+        buy-price: 10
+        sell-price: 0.35
       COPPER_BLOCK: 30
       EXPOSED_COPPER: 30
       WEATHERED_COPPER: 30
@@ -588,37 +1106,37 @@ categories:
     name: MINERALES
     icon: DIAMOND
     items:
-      IRON_NUGGET: 1
-      IRON_INGOT: 9
-      IRON_BLOCK: 81
-      GOLD_NUGGET: 2
-      GOLD_INGOT: 18
-      GOLD_BLOCK: 162
-      COPPER_INGOT: 5
-      COPPER_BLOCK: 45
-      COAL: 6
-      COAL_BLOCK: 54
-      DIAMOND: 150
-      DIAMOND_BLOCK: 1350
-      EMERALD: 120
-      EMERALD_BLOCK: 1080
-      LAPIS_LAZULI: 7
-      LAPIS_BLOCK: 63
-      REDSTONE: 5
-      REDSTONE_BLOCK: 45
-      QUARTZ: 12
-      AMETHYST_SHARD: 10
-      NETHERITE_SCRAP: 650
-      RAW_IRON: 9
-      RAW_GOLD: 18
-      RAW_COPPER: 5
-      RAW_IRON_BLOCK: 81
-      RAW_GOLD_BLOCK: 162
-      RAW_COPPER_BLOCK: 45
-      NETHERITE_INGOT: 2600
-      NETHERITE_BLOCK: 23400
-      ANCIENT_DEBRIS: 650
-      COPPER_NUGGET: 1
+      IRON_NUGGET: 0.56
+      IRON_INGOT: 5
+      IRON_BLOCK: 45
+      GOLD_NUGGET: 0.84
+      GOLD_INGOT: 7.5
+      GOLD_BLOCK: 67.5
+      COPPER_INGOT: 2
+      COPPER_BLOCK: 18
+      COAL: 3
+      COAL_BLOCK: 27
+      DIAMOND: 30
+      DIAMOND_BLOCK: 270
+      EMERALD: 10
+      EMERALD_BLOCK: 90
+      LAPIS_LAZULI: 1.5
+      LAPIS_BLOCK: 13.5
+      REDSTONE: 1
+      REDSTONE_BLOCK: 9
+      QUARTZ: 3
+      AMETHYST_SHARD: 2.5
+      NETHERITE_SCRAP: 150
+      RAW_IRON: 5
+      RAW_GOLD: 7.5
+      RAW_COPPER: 2
+      RAW_IRON_BLOCK: 45
+      RAW_GOLD_BLOCK: 67.5
+      RAW_COPPER_BLOCK: 18
+      NETHERITE_INGOT: 600
+      NETHERITE_BLOCK: 5400
+      ANCIENT_DEBRIS: 150
+      COPPER_NUGGET: 0.23
   mecanismos:
     name: MECANISMOS
     icon: REDSTONE
@@ -662,8 +1180,12 @@ categories:
       GLOW_ITEM_FRAME: 35
       LANTERN: 28
       SOUL_LANTERN: 32
-      WHITE_CARPET: 4
-      RED_CARPET: 5
+      WHITE_CARPET:
+        buy-price: 4
+        sell-price: 0.08
+      RED_CARPET:
+        buy-price: 5
+        sell-price: 0.08
       WHITE_STAINED_GLASS: 8
       BLUE_STAINED_GLASS: 8
       DANDELION: 4
@@ -680,42 +1202,96 @@ categories:
     name: MISCELÁNEOS
     icon: COBWEB
     items:
-      LEATHER: 10
-      FEATHER: 4
-      EGG: 5
-      WHITE_WOOL: 8
-      BLACK_WOOL: 8
-      RABBIT_HIDE: 8
+      LEATHER:
+        buy-price: 10
+        sell-price: 0.3
+      FEATHER:
+        buy-price: 4
+        sell-price: 0.06
+      EGG:
+        buy-price: 5
+        sell-price: 0.05
+      WHITE_WOOL:
+        buy-price: 8
+        sell-price: 0.2
+      BLACK_WOOL:
+        buy-price: 8
+        sell-price: 0.2
+      RABBIT_HIDE:
+        buy-price: 8
+        sell-price: 0.25
       RABBIT_FOOT: 30
       TURTLE_SCUTE: 90
-      INK_SAC: 8
-      GLOW_INK_SAC: 16
-      HONEYCOMB: 12
-      HONEY_BOTTLE: 18
+      INK_SAC:
+        buy-price: 8
+        sell-price: 0.15
+      GLOW_INK_SAC:
+        buy-price: 16
+        sell-price: 0.3
+      HONEYCOMB:
+        buy-price: 12
+        sell-price: 0.08
+      HONEY_BOTTLE:
+        buy-price: 18
+        sell-price: 0.1
   comida:
     name: COMIDA
     icon: BEEF
     items:
-      BREAD: 12
+      BREAD:
+        buy-price: 12
+        sell-price: 0.38
       APPLE: 8
       GOLDEN_APPLE: 140
-      BEEF: 12
-      COOKED_BEEF: 18
-      PORKCHOP: 12
-      COOKED_PORKCHOP: 18
-      CHICKEN: 9
-      COOKED_CHICKEN: 14
-      MUTTON: 10
-      COOKED_MUTTON: 15
-      COD: 9
-      COOKED_COD: 14
-      SALMON: 11
-      COOKED_SALMON: 16
-      BAKED_POTATO: 7
+      BEEF:
+        buy-price: 12
+        sell-price: 0.18
+      COOKED_BEEF:
+        buy-price: 18
+        sell-price: 0.28
+      PORKCHOP:
+        buy-price: 12
+        sell-price: 0.18
+      COOKED_PORKCHOP:
+        buy-price: 18
+        sell-price: 0.28
+      CHICKEN:
+        buy-price: 9
+        sell-price: 0.15
+      COOKED_CHICKEN:
+        buy-price: 14
+        sell-price: 0.2
+      MUTTON:
+        buy-price: 10
+        sell-price: 0.16
+      COOKED_MUTTON:
+        buy-price: 15
+        sell-price: 0.23
+      COD:
+        buy-price: 9
+        sell-price: 0.2
+      COOKED_COD:
+        buy-price: 14
+        sell-price: 0.25
+      SALMON:
+        buy-price: 11
+        sell-price: 0.25
+      COOKED_SALMON:
+        buy-price: 16
+        sell-price: 0.3
+      BAKED_POTATO:
+        buy-price: 7
+        sell-price: 0.16
       GOLDEN_CARROT: 55
-      COOKIE: 4
-      PUMPKIN_PIE: 20
-      CAKE: 60
+      COOKIE:
+        buy-price: 4
+        sell-price: 0.06
+      PUMPKIN_PIE:
+        buy-price: 20
+        sell-price: 0.5
+      CAKE:
+        buy-price: 60
+        sell-price: 1.3
       COOKED_RABBIT: 18
       MUSHROOM_STEW: 18
       BEETROOT_SOUP: 20
@@ -724,31 +1300,79 @@ categories:
     name: CULTIVOS
     icon: WHEAT
     items:
-      WHEAT: 4
-      WHEAT_SEEDS: 1
-      CARROT: 4
-      POTATO: 4
-      BEETROOT: 4
-      BEETROOT_SEEDS: 1
-      SUGAR_CANE: 3
-      CACTUS: 3
-      PUMPKIN: 12
-      MELON_SLICE: 2
-      MELON: 18
-      COCOA_BEANS: 5
-      NETHER_WART: 8
-      KELP: 2
-      SWEET_BERRIES: 3
-      GLOW_BERRIES: 4
-      TORCHFLOWER_SEEDS: 25
-      PITCHER_POD: 25
-      PITCHER_PLANT: 35
-      TORCHFLOWER: 35
-      VINE: 5
+      WHEAT:
+        buy-price: 4
+        sell-price: 0.15
+      WHEAT_SEEDS:
+        buy-price: 1
+        sell-price: 0
+      CARROT:
+        buy-price: 4
+        sell-price: 0.12
+      POTATO:
+        buy-price: 4
+        sell-price: 0.12
+      BEETROOT:
+        buy-price: 4
+        sell-price: 0.12
+      BEETROOT_SEEDS:
+        buy-price: 1
+        sell-price: 0
+      SUGAR_CANE:
+        buy-price: 3
+        sell-price: 0.08
+      CACTUS:
+        buy-price: 3
+        sell-price: 0.08
+      PUMPKIN:
+        buy-price: 12
+        sell-price: 0.4
+      MELON_SLICE:
+        buy-price: 2
+        sell-price: 0.06
+      MELON:
+        buy-price: 18
+        sell-price: 0.45
+      COCOA_BEANS:
+        buy-price: 5
+        sell-price: 0.2
+      NETHER_WART:
+        buy-price: 8
+        sell-price: 0.25
+      KELP:
+        buy-price: 2
+        sell-price: 0.04
+      SWEET_BERRIES:
+        buy-price: 3
+        sell-price: 0.1
+      GLOW_BERRIES:
+        buy-price: 4
+        sell-price: 0.1
+      TORCHFLOWER_SEEDS:
+        buy-price: 25
+        sell-price: 0.4
+      PITCHER_POD:
+        buy-price: 25
+        sell-price: 0.4
+      PITCHER_PLANT:
+        buy-price: 35
+        sell-price: 0.6
+      TORCHFLOWER:
+        buy-price: 35
+        sell-price: 0.6
+      VINE:
+        buy-price: 5
+        sell-price: 0.15
       LILY_PAD: 8
-      SEA_PICKLE: 6
-      BROWN_MUSHROOM: 6
-      RED_MUSHROOM: 6
+      SEA_PICKLE:
+        buy-price: 6
+        sell-price: 0.2
+      BROWN_MUSHROOM:
+        buy-price: 6
+        sell-price: 0.18
+      RED_MUSHROOM:
+        buy-price: 6
+        sell-price: 0.18
   equipamiento:
     name: EQUIPAMIENTO
     icon: IRON_CHESTPLATE
@@ -757,18 +1381,48 @@ categories:
     name: DROPS DE MOBS
     icon: BONE
     items:
-      BONE: 6
-      ROTTEN_FLESH: 2
-      STRING: 5
-      GUNPOWDER: 12
-      SPIDER_EYE: 7
-      ENDER_PEARL: 35
-      BLAZE_ROD: 45
-      GHAST_TEAR: 130
-      SLIME_BALL: 20
-      MAGMA_CREAM: 35
-      PHANTOM_MEMBRANE: 45
-      SHULKER_SHELL: 170
-      BREEZE_ROD: 75
-      WIND_CHARGE: 18
-      BLAZE_POWDER: 22
+      BONE:
+        buy-price: 6
+        sell-price: 0.18
+      ROTTEN_FLESH:
+        buy-price: 2
+        sell-price: 0.04
+      STRING:
+        buy-price: 5
+        sell-price: 0.15
+      GUNPOWDER:
+        buy-price: 12
+        sell-price: 0.35
+      SPIDER_EYE:
+        buy-price: 7
+        sell-price: 0.1
+      ENDER_PEARL:
+        buy-price: 35
+        sell-price: 0.8
+      BLAZE_ROD:
+        buy-price: 45
+        sell-price: 1.5
+      GHAST_TEAR:
+        buy-price: 130
+        sell-price: 4
+      SLIME_BALL:
+        buy-price: 20
+        sell-price: 0.35
+      MAGMA_CREAM:
+        buy-price: 35
+        sell-price: 0.45
+      PHANTOM_MEMBRANE:
+        buy-price: 45
+        sell-price: 0.6
+      SHULKER_SHELL:
+        buy-price: 170
+        sell-price: 7
+      BREEZE_ROD:
+        buy-price: 75
+        sell-price: 2
+      WIND_CHARGE:
+        buy-price: 18
+        sell-price: 0.4
+      BLAZE_POWDER:
+        buy-price: 22
+        sell-price: 0.7

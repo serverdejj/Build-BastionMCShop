@@ -1,5 +1,5 @@
 economy:
-  sell-percentage: 50.0
+  sell-percentage: 20.0
   currency-symbol: '$'
 sellall:
   enabled: true

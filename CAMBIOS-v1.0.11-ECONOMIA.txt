@@ -1,0 +1,37 @@
+BASTION MC SHOP v1.0.11 — ECONOMÍA DE PROGRESIÓN LENTA
+
+Base: BastionMCShop v1.0.10 (centrado). Se conservan Java, menus.yml y los 714 productos.
+
+META ECONÓMICA: primeros $10,000 en ~5-10 horas, objetivo de diseño, NO garantizado.
+Requiere calibrar según densidad y regeneración de minas, Fortuna, multiplicadores,
+granjas y otras entradas de dinero (jobs, recompensas, votaciones).
+
+CAMBIOS:
+- Porcentaje global de venta: 50% -> 20% en config.yml.
+- Precios de compra de 31 productos minerales ajustados, manteniendo equivalencia
+  de bloques/lingotes para evitar transformar materiales y ganar dinero.
+- 325 materiales renovables/granjeables tienen precio de venta independiente
+  y muy bajo en catalog.yml.
+- Menús y productos originales intactos; no cambia la lógica Java.
+
+EJEMPLOS: precio de venta /unidad:
+COAL $0.60, IRON_INGOT $1.00, GOLD_INGOT $1.50, COPPER_INGOT $0.40,
+REDSTONE $0.20, LAPIS_LAZULI $0.30, DIAMOND $6.00, EMERALD $2.00,
+QUARTZ $0.60, NETHERITE_SCRAP $30.00, NETHERITE_INGOT $120.00.
+SUGAR_CANE $0.08, CACTUS $0.08, GUNPOWDER $0.35.
+
+INSTALACIÓN:
+1. Hacer respaldo de plugins/BastionMCShop/config.yml y catalog.yml.
+2. Reemplazar SOLO esos 2 archivos por los de src/main/resources de este ZIP.
+3. Reiniciar el servidor o ejecutar /bastionshop reload.
+4. NO borrar la carpeta ni reemplazar menus.yml.
+5. Si compilas el ZIP en GitHub Actions, el JAR incluirá los nuevos valores
+   COMO PREDETERMINADOS, pero NO sobrescribe archivos ya existentes.
+   Por tanto, de todas formas actualiza los dos YAML en tu servidor.
+
+RECOMENDACIÓN DE PRUEBA:
+- Medir 30 minutos de minería real con inventario inicial vacío.
+- Comparar el ingreso por /sellall fast; multiplicar por 2 para $/h.
+- Si $/h supera ~2000, reducir precios o rendimiento de minas.
+- Si $/h cae por debajo ~1000 para jugadores promedio, subir precios gradualmente.
+- Probar además granjas AFK y conversiones de objetos para evitar arbitrajes.
