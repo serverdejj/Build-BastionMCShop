@@ -256,16 +256,13 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
     private void openRoot(Player player,int page) {
         List<Category> list=new ArrayList<>(categories.values());int[] positions=displaySlots(View.ROOT);
         int pages=1;page=0;
-        Inventory inv=inventory(View.ROOT,null,null,page,54,text(ui("root-title",menuString("shop.title","BASTION SHOP"),"page",""+(page+1),"pages",""+pages)));
+        Inventory inv=inventory(View.ROOT,null,null,page,45,text(ui("root-title",menuString("shop.title","BASTION SHOP"),"page",""+(page+1),"pages",""+pages)));
         decorate(inv,player,"root");
-        // Fila inferior dedicada al pie del menu principal (slots 45-53).
-        Material footerMaterial=configuredMaterial("shop.layout.root.footer-material",Material.BLACK_STAINED_GLASS_PANE);
-        ItemStack footer=icon(footerMaterial,ui("panel-name"," "));
-        for(int footerSlot=45;footerSlot<54;footerSlot++)inv.setItem(footerSlot,footer.clone());
-        int balanceSlot=slot("root.head-slot",49);
-        if(balanceSlot>=45&&balanceSlot<54)inv.setItem(balanceSlot,playerInfo(player));
-        int closeSlot=slot("root.close-slot",53);
-        if(closeSlot>=45&&closeSlot<54&&closeSlot!=balanceSlot)
+        // Solo dos controles en la ultima fila, sin paneles de relleno.
+        int balanceSlot=slot("root.head-slot",40);
+        if(balanceSlot>=36&&balanceSlot<45)inv.setItem(balanceSlot,playerInfo(player));
+        int closeSlot=slot("root.close-slot",44);
+        if(closeSlot>=36&&closeSlot<45&&closeSlot!=balanceSlot)
             inv.setItem(closeSlot,control("close-name","close-material","<red>Cerrar tienda"));
         for(int i=0;i<positions.length&&page*positions.length+i<list.size();i++){
             Category c=list.get(page*positions.length+i);
@@ -303,7 +300,7 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
         Inventory inv=inventory(View.PRODUCT,p.category,m,categoryPage,54,text(ui("item-title",menuString("shop.product-title","{item}"),"item",pretty(m))));
         decorate(inv,player,"item");int max=m.getMaxStackSize();
         inv.setItem(slot("item.preview-slot",13),named(m,"item-preview-name","<white>{item}","item",pretty(m)));
-        int[] amounts={1,16,32,max},buys=slots("shop.layout.item.buy-slots",new int[]{19,21,23,25}),sells=slots("shop.layout.item.sell-slots",new int[]{28,30,32,34});
+        int[] amounts={1,16,32,max},buys=slots("shop.layout.item.buy-slots",new int[]{20,21,23,24}),sells=slots("shop.layout.item.sell-slots",new int[]{29,30,32,33});
         for(int i=0;i<4;i++){
             int q=Math.min(amounts[i],max);
             String[] buyArgs={"quantity",""+q,"price",money(round(p.buy*q)),"item",pretty(m)};
@@ -453,8 +450,8 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
         int slot=event.getRawSlot();if(slot<0||slot>=event.getView().getTopInventory().getSize())return;
         switch(h.view) {
             case ROOT -> {
-                if(slot==slot("root.close-slot",53)){player.closeInventory();return;}
-                if(slot<45){List<Category> cs=new ArrayList<>(categories.values());int[] positions=displaySlots(View.ROOT);for(int i=0;i<cs.size();i++){int pos=menuInt("shop.categories."+cs.get(i).key+".slot",i<positions.length?positions[i]:-1);if(pos==slot){openCategory(player,cs.get(i).key,0);break;}}}
+                if(slot==slot("root.close-slot",44)){player.closeInventory();return;}
+                if(slot<36){List<Category> cs=new ArrayList<>(categories.values());int[] positions=displaySlots(View.ROOT);for(int i=0;i<cs.size();i++){int pos=menuInt("shop.categories."+cs.get(i).key+".slot",i<positions.length?positions[i]:-1);if(pos==slot){openCategory(player,cs.get(i).key,0);break;}}}
             }
             case CATEGORY -> {
                 if(slot==slot("category.back-slot",48))openRoot(player,0);
@@ -465,7 +462,7 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
             case PRODUCT -> {
                 if(slot==slot("item.back-slot",48)){openCategory(player,h.category,h.page);return;}
                 Product p=products.get(h.product);if(p==null)return;
-                int[] buySlots=slots("shop.layout.item.buy-slots",new int[]{19,21,23,25}),sellSlots=slots("shop.layout.item.sell-slots",new int[]{28,30,32,34}),amounts={1,16,32,h.product.getMaxStackSize()};
+                int[] buySlots=slots("shop.layout.item.buy-slots",new int[]{20,21,23,24}),sellSlots=slots("shop.layout.item.sell-slots",new int[]{29,30,32,33}),amounts={1,16,32,h.product.getMaxStackSize()};
                 for(int i=0;i<4;i++){
                     int q=Math.min(amounts[i],h.product.getMaxStackSize());
                     if(i<buySlots.length&&slot==buySlots[i]){safeBuy(player,p,q);refreshBalance(event.getView().getTopInventory(),player,"item");return;}

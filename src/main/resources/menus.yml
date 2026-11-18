@@ -27,9 +27,8 @@ shop:
       - 23
       - 25
       - 31
-      head-slot: 49
-      footer-material: BLACK_STAINED_GLASS_PANE
-      close-slot: 53
+      head-slot: 40
+      close-slot: 44
     category:
       border-enabled: true
       border-material: GRAY_STAINED_GLASS_PANE
@@ -74,15 +73,15 @@ shop:
       extra-panels: []
       preview-slot: 13
       buy-slots:
-      - 19
+      - 20
       - 21
       - 23
-      - 25
+      - 24
       sell-slots:
-      - 28
+      - 29
       - 30
       - 32
-      - 34
+      - 33
       back-slot: 48
       head-slot: 49
     confirm:

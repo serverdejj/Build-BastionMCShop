@@ -1,0 +1,13 @@
+BastionMCShop v1.0.9 - Ajustes GUI
+
+1. /shop: 5 filas (45 slots) en lugar de 6.
+2. Ultima fila sin paneles negros; cabeza en slot 40 y BARRIER en slot 44.
+3. Menu de producto: compra en slots 20, 21, 23, 24 y venta en slots 29, 30, 32, 33.
+4. Slots por defecto corregidos tanto al dibujar como al detectar clics.
+5. Se conservan catalog.yml, config.yml y los demas recursos anteriores.
+
+INSTALACION: Compilar con GitHub Actions, apagar servidor y reemplazar JAR.
+IMPORTANTE: Hacer copia de plugins/BastionMCShop/menus.yml y reemplazar
+ese archivo con src/main/resources/menus.yml de este ZIP, porque un YAML
+existente no se sobreescribe automaticamente al actualizar el JAR.
+No borrar la carpeta del plugin ni catalog.yml.
