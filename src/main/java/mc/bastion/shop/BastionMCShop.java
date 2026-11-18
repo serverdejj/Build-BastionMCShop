@@ -76,7 +76,7 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
     private void validateMenus() {
         for(String group:List.of("root","category","item","confirm")) {
             String base="shop.layout."+group;
-            int size=group.equals("root")?45:group.equals("confirm")?27:54;
+            int size=group.equals("confirm")?27:54;
             Set<Integer> occupied=new HashSet<>();
             for(String path:List.of("slots","buy-slots","sell-slots")) {
                 if(!menus.contains(base+"."+path))continue;
@@ -84,7 +84,7 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
                     if(n<0||n>=size||!occupied.add(n))getLogger().warning("Slot duplicado o fuera de rango: "+base+"."+path+" -> "+n);
                 }
             }
-            for(String path:List.of("head-slot","back-slot","previous-slot","next-slot","page-slot","preview-slot","accept-slot","cancel-slot","info-slot")) {
+            for(String path:List.of("head-slot","back-slot","previous-slot","next-slot","page-slot","preview-slot","accept-slot","cancel-slot","info-slot","close-slot")) {
                 if(!menus.contains(base+"."+path))continue;
                 int n=menus.getInt(base+"."+path);
                 if(n<0||n>=size||!occupied.add(n))getLogger().warning("Slot duplicado o fuera de rango: "+base+"."+path+" -> "+n);
@@ -216,7 +216,7 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
             if(row==0||row==inv.getSize()/9-1||col==0||col==8)inv.setItem(i,panel.clone());
         }
         for(int i:menuStringsInt(base+".extra-panels"))if(i>=0&&i<inv.getSize())inv.setItem(i,panel.clone());
-        int head=inv.getSize()==27?menuInt(base+".head-slot",22):(layout.equals("root")?menuInt(base+".head-slot",44):slot(layout+".head-slot",49));
+        int head=inv.getSize()==27?menuInt(base+".head-slot",22):(layout.equals("root")?menuInt(base+".head-slot",49):slot(layout+".head-slot",49));
         if(head>=0&&head<inv.getSize())inv.setItem(head,playerInfo(player));
     }
     private ItemStack playerInfo(Player player) {
@@ -228,7 +228,7 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
         head.setItemMeta(meta);return head;
     }
     private void refreshBalance(Inventory inv,Player player,String layout) {
-        int head=inv.getSize()==27?menuInt("shop.layout."+layout+".head-slot",22):(layout.equals("root")?menuInt("shop.layout.root.head-slot",44):slot(layout+".head-slot",49));
+        int head=inv.getSize()==27?menuInt("shop.layout."+layout+".head-slot",22):(layout.equals("root")?menuInt("shop.layout.root.head-slot",49):slot(layout+".head-slot",49));
         if(head>=0&&head<inv.getSize())inv.setItem(head,playerInfo(player));
     }
     private ItemStack control(String key,String materialKey,String defaultName,String... replacements) {
@@ -256,8 +256,17 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
     private void openRoot(Player player,int page) {
         List<Category> list=new ArrayList<>(categories.values());int[] positions=displaySlots(View.ROOT);
         int pages=1;page=0;
-        Inventory inv=inventory(View.ROOT,null,null,page,45,text(ui("root-title",menuString("shop.title","BASTION SHOP"),"page",""+(page+1),"pages",""+pages)));
+        Inventory inv=inventory(View.ROOT,null,null,page,54,text(ui("root-title",menuString("shop.title","BASTION SHOP"),"page",""+(page+1),"pages",""+pages)));
         decorate(inv,player,"root");
+        // Fila inferior dedicada al pie del menu principal (slots 45-53).
+        Material footerMaterial=configuredMaterial("shop.layout.root.footer-material",Material.BLACK_STAINED_GLASS_PANE);
+        ItemStack footer=icon(footerMaterial,ui("panel-name"," "));
+        for(int footerSlot=45;footerSlot<54;footerSlot++)inv.setItem(footerSlot,footer.clone());
+        int balanceSlot=slot("root.head-slot",49);
+        if(balanceSlot>=45&&balanceSlot<54)inv.setItem(balanceSlot,playerInfo(player));
+        int closeSlot=slot("root.close-slot",53);
+        if(closeSlot>=45&&closeSlot<54&&closeSlot!=balanceSlot)
+            inv.setItem(closeSlot,control("close-name","close-material","<red>Cerrar tienda"));
         for(int i=0;i<positions.length&&page*positions.length+i<list.size();i++){
             Category c=list.get(page*positions.length+i);
             String base="shop.categories."+c.key;
@@ -294,7 +303,7 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
         Inventory inv=inventory(View.PRODUCT,p.category,m,categoryPage,54,text(ui("item-title",menuString("shop.product-title","{item}"),"item",pretty(m))));
         decorate(inv,player,"item");int max=m.getMaxStackSize();
         inv.setItem(slot("item.preview-slot",13),named(m,"item-preview-name","<white>{item}","item",pretty(m)));
-        int[] amounts={1,16,32,max},buys=slots("shop.layout.item.buy-slots",new int[]{20,22,24,26}),sells=slots("shop.layout.item.sell-slots",new int[]{29,31,33,35});
+        int[] amounts={1,16,32,max},buys=slots("shop.layout.item.buy-slots",new int[]{19,21,23,25}),sells=slots("shop.layout.item.sell-slots",new int[]{28,30,32,34});
         for(int i=0;i<4;i++){
             int q=Math.min(amounts[i],max);
             String[] buyArgs={"quantity",""+q,"price",money(round(p.buy*q)),"item",pretty(m)};
@@ -444,6 +453,7 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
         int slot=event.getRawSlot();if(slot<0||slot>=event.getView().getTopInventory().getSize())return;
         switch(h.view) {
             case ROOT -> {
+                if(slot==slot("root.close-slot",53)){player.closeInventory();return;}
                 if(slot<45){List<Category> cs=new ArrayList<>(categories.values());int[] positions=displaySlots(View.ROOT);for(int i=0;i<cs.size();i++){int pos=menuInt("shop.categories."+cs.get(i).key+".slot",i<positions.length?positions[i]:-1);if(pos==slot){openCategory(player,cs.get(i).key,0);break;}}}
             }
             case CATEGORY -> {
@@ -455,7 +465,7 @@ public final class BastionMCShop extends JavaPlugin implements Listener {
             case PRODUCT -> {
                 if(slot==slot("item.back-slot",48)){openCategory(player,h.category,h.page);return;}
                 Product p=products.get(h.product);if(p==null)return;
-                int[] buySlots=slots("shop.layout.item.buy-slots",new int[]{20,22,24,26}),sellSlots=slots("shop.layout.item.sell-slots",new int[]{29,31,33,35}),amounts={1,16,32,h.product.getMaxStackSize()};
+                int[] buySlots=slots("shop.layout.item.buy-slots",new int[]{19,21,23,25}),sellSlots=slots("shop.layout.item.sell-slots",new int[]{28,30,32,34}),amounts={1,16,32,h.product.getMaxStackSize()};
                 for(int i=0;i<4;i++){
                     int q=Math.min(amounts[i],h.product.getMaxStackSize());
                     if(i<buySlots.length&&slot==buySlots[i]){safeBuy(player,p,q);refreshBalance(event.getView().getTopInventory(),player,"item");return;}

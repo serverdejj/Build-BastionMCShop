@@ -27,7 +27,9 @@ shop:
       - 23
       - 25
       - 31
-      head-slot: 40
+      head-slot: 49
+      footer-material: BLACK_STAINED_GLASS_PANE
+      close-slot: 53
     category:
       border-enabled: true
       border-material: GRAY_STAINED_GLASS_PANE
@@ -72,15 +74,15 @@ shop:
       extra-panels: []
       preview-slot: 13
       buy-slots:
-      - 20
-      - 22
-      - 24
-      - 26
+      - 19
+      - 21
+      - 23
+      - 25
       sell-slots:
-      - 29
-      - 31
-      - 33
-      - 35
+      - 28
+      - 30
+      - 32
+      - 34
       back-slot: 48
       head-slot: 49
     confirm:
@@ -109,6 +111,7 @@ shop:
     page-name: <yellow>Página {page}/{pages}
     previous-name: <yellow>Anterior
     next-name: <green>Siguiente
+    close-name: <red><bold>CERRAR TIENDA
     back-name: <gold>Volver
     buy-name: <green><bold>COMPRAR x{quantity}
     buy-lore:
@@ -132,6 +135,7 @@ shop:
     - ' &8▸ &fDinero: &#80FF00{balance}'
     - ''
     - '&f$ &8| &#80FF00¡Es hora de comprar objetos!'
+  close-material: BARRIER
   buy-material: LIME_STAINED_GLASS_PANE
   sell-material: RED_STAINED_GLASS_PANE
   back-material: ARROW

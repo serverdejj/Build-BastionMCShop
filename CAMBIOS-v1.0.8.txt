@@ -1,0 +1,7 @@
+BastionMCShop v1.0.8 - Ajustes de menus
+- Menu principal de /shop ampliado de 45 a 54 espacios (fila inferior).
+- Pie de menu con paneles negros configurables, cabeza/saldo en slot 49 y boton cerrar en slot 53.
+- Botones de compra/venta del menu de producto desplazados una columna a la izquierda y centrados.
+- Todo editable en menus.yml.
+- IMPORTANTE: Haz copia del menus.yml previo y reemplaza el existente para aplicar el diseno.
+- Compilar con Java 21 mediante GitHub Actions.
